@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup | Fluentra Academy</title>
+  <meta name="description" content="Log in to access your student dashboard, view your enrolled courses, and track your language learning progress.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Auth Page Specific Styles */
+    .auth-page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-body);
+    }
+
+    /* Background decorative blobs */
+    .auth-page-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: var(--primary-glow);
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      animation: pulseBlob 8s infinite alternate ease-in-out;
+    }
+
+    .auth-page-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: var(--secondary-glow);
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      animation: pulseBlob 10s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes pulseBlob {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+      100% { transform: scale(1.1) translate(30px, 30px); opacity: 0.5; }
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Info Sidebar */
+    .auth-sidebar {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(124, 58, 237, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200') center/cover;
+      padding: 50px 40px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .auth-sidebar-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .auth-sidebar h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .auth-sidebar p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .auth-features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .auth-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .auth-feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    .auth-feature-text {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Form Area */
+    .auth-form-wrap {
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Course Pending Banner */
+    #authPendingBanner {
+      display: none;
+      background: var(--primary-glow);
+      border: 1px solid var(--primary-light);
+      padding: 15px 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 30px;
+      animation: fadeInDown 0.5s ease;
+    }
+
+    #authPendingBanner p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .auth-switcher {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+    }
+
+    .auth-switch-btn {
+      background: transparent;
+      border: none;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+      padding: 0 5px;
+      transition: color var(--transition-fast);
+    }
+
+    .auth-switch-btn.active {
+      color: var(--text-primary);
+    }
+
+    .auth-switch-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -17px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .auth-form {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .auth-form.active {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group-auth label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .form-group-auth input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-app);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+
+    .form-group-auth input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .auth-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+    }
+
+    .forgot-pw {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: var(--gradient-primary);
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+      transition: all var(--transition-fast);
+    }
+
+    .auth-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(124, 58, 237, 0.3);
+    }
+
+    .social-auth {
+      margin-top: 30px;
+    }
+
+    .social-auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .social-auth-divider::before,
+    .social-auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .social-auth-divider:not(:empty)::before {
+      margin-right: 15px;
+    }
+
+    .social-auth-divider:not(:empty)::after {
+      margin-left: 15px;
+    }
+
+    .social-btn-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .btn-social {
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-app);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-social:hover {
+      background: var(--bg-card);
+      border-color: var(--primary);
+    }
+
+    .btn-social img {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+      .auth-sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Minimal Navigation for Auth Page -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Switch Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auth Wrapper -->
+  <div class="auth-page-wrapper">
+    <div class="auth-container">
+      
+      <!-- Left Sidebar Information -->
+      <div class="auth-sidebar">
+        <div class="auth-sidebar-inner">
+          <h2>Join the Global Language Ecosystem.</h2>
+          <p>Access premium video modules, connect with native tutors, and earn verified certifications that open doors internationally.</p>
+          
+          <div class="auth-features">
+            <div class="auth-feature-item">
+              <div class="auth-feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+              <span class="auth-feature-text">12+ Global Native Languages</span>
+            </div>
+            <div class="auth-feature-item">
+              <div class="auth-feature-icon"><i class="fa-solid fa-certificate"></i></div>
+              <span class="auth-feature-text">Official CEFR Certifications</span>
+            </div>
+            <div class="auth-feature-item">
+              <div class="auth-feature-icon"><i class="fa-solid fa-users"></i></div>
+              <span class="auth-feature-text">15,000+ Active Scholars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form Area -->
+      <div class="auth-form-wrap">
+        
+        <!-- Pending Enrollment Banner -->
+        <div id="authPendingBanner">
+          <p><i class="fa-solid fa-circle-exclamation"></i> Log in to complete enrollment for: <span id="pendingCourseName" style="color:var(--text-primary); margin-left:4px;">Course</span></p>
+        </div>
+
+        <div class="auth-switcher">
+          <button class="auth-switch-btn active" data-target="formLogin">Login</button>
+          <button class="auth-switch-btn" data-target="formSignup">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="formLogin">
+          <div class="form-group-auth">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="student@fluentra.com" required>
+          </div>
+          <div class="form-group-auth">
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required>
+          </div>
+          <div class="auth-options">
+            <label class="remember-me">
+              <input type="checkbox" checked> Remember me
+            </label>
+            <a href="#" class="forgot-pw">Forgot Password?</a>
+          </div>
+          <button type="submit" class="auth-submit-btn">Secure Login <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></button>
+        </form>
+
+        <!-- Signup Form -->
+        <form class="auth-form" id="formSignup">
+          <div class="form-group-auth">
+            <label>Full Name</label>
+            <input type="text" id="signupName" placeholder="John Doe" required>
+          </div>
+          <div class="form-group-auth">
+            <label>Email Address</label>
+            <input type="email" id="signupEmail" placeholder="student@fluentra.com" required>
+          </div>
+          <div class="form-group-auth">
+            <label>Create Password</label>
+            <input type="password" id="signupPassword" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Create Free Account <i class="fa-solid fa-user-plus" style="margin-left: 5px;"></i></button>
+        </form>
+
+        <!-- Social Auth -->
+        <div class="social-auth">
+          <div class="social-auth-divider">Or continue with</div>
+          <div class="social-btn-group">
+            <button class="btn-social" type="button">
+              <i class="fa-brands fa-google" style="color: #ea4335;"></i> Google
+            </button>
+            <button class="btn-social" type="button">
+              <i class="fa-brands fa-apple"></i> Apple
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Switcher Logic
+      const switchBtns = document.querySelectorAll('.auth-switch-btn');
+      const forms = document.querySelectorAll('.auth-form');
+
+      switchBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchBtns.forEach(b => b.classList.remove('active'));
+          forms.forEach(f => f.classList.remove('active'));
+          
+          btn.classList.add('active');
+          document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+        });
+      });
+
+      // 2. Pending Course Checking
+      const pendingCourseStr = localStorage.getItem('fluentra_pending_course');
+      const hasPendingEnrollment = pendingCourseStr !== null;
+      
+      if (hasPendingEnrollment) {
+        const pendingCourse = JSON.parse(pendingCourseStr);
+        const banner = document.getElementById('authPendingBanner');
+        const courseNameSpan = document.getElementById('pendingCourseName');
+        
+        courseNameSpan.textContent = pendingCourse.title;
+        banner.style.display = 'block';
+      }
+
+      // 3. Form Submissions
+      const processAuth = (name) => {
+        // Set User
+        localStorage.setItem('currentUser', JSON.stringify({
+          name: name,
+          role: 'Active Scholar'
+        }));
+
+        // Redirect based on intent
+        if (hasPendingEnrollment) {
+          window.location.href = 'user-dashboard.html?tab=enrollment';
+        } else {
+          window.location.href = 'user-dashboard.html';
+        }
+      };
+
+      document.getElementById('formLogin').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const name = email.split('@')[0];
+        processAuth(name);
+      });
+
+      document.getElementById('formSignup').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signupName').value;
+        processAuth(name);
+      });
+    });
+  </script>
+</body>
+</html>

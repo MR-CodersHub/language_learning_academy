@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding the Difference Between WA (は) and GA (が) | Fluentra Blog</title>
+  <meta name="description" content="It is the most common pitfall for beginner Japanese learners. We demystify the topic-marker vs subject-marker particle rules once and for all.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* Premium Blog Details Page Styles */
+    .article-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+    }
+    
+    .article-title {
+      font-size: 42px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-top: 15px;
+      margin-bottom: 24px;
+    }
+    
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 40px;
+    }
+    
+    .author-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .author-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+    
+    .author-name {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 15px;
+    }
+    
+    .author-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    
+    .meta-details {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    
+    .meta-details span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: transparent;
+      text-decoration: none;
+    }
+    
+    .share-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    .featured-banner {
+      width: 100%;
+      height: 450px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 50px;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--bg-card);
+    }
+    
+    .featured-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .rich-content {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+    }
+    
+    .rich-content h2, .rich-content h3 {
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .rich-content h2 {
+      font-size: 28px;
+    }
+    
+    .rich-content h3 {
+      font-size: 22px;
+    }
+    
+    .rich-content p {
+      margin-bottom: 24px;
+    }
+    
+    /* Pull Quote Block */
+    .pull-quote {
+      position: relative;
+      background: var(--bg-card);
+      border-left: 4px solid var(--primary);
+      padding: 30px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 40px 0;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+    
+    .pull-quote p {
+      font-style: italic;
+      font-size: 18px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    .pull-quote cite {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 12px;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+    
+    /* Learning Tip Box */
+    .tip-box {
+      background: linear-gradient(135deg, hsla(262, 85%, 58%, 0.05) 0%, hsla(25, 95%, 53%, 0.05) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      margin: 40px 0;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .tip-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    
+    .tip-content h4 {
+      font-size: 16px;
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    
+    .tip-content p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    /* Grammar / Example Comparison Grid */
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .example-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .example-card.correct {
+      border-top: 4px solid #10b981;
+    }
+    
+    .example-card.incorrect {
+      border-top: 4px solid #ef4444;
+    }
+    
+    .example-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    
+    .example-card.correct .example-label {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+    
+    .example-card.incorrect .example-label {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+    
+    .example-sentence {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+    }
+    
+    .example-translation {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .example-explanation {
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    
+    /* Key Takeaways Box */
+    .takeaways-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      margin: 40px 0;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .takeaways-box h4 {
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .takeaways-box h4 i {
+      color: var(--secondary);
+    }
+    
+    .takeaways-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-left: 0;
+      list-style-type: none;
+    }
+    
+    .takeaways-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    .takeaways-list li i {
+      color: #10b981;
+      margin-top: 4px;
+      font-size: 16px;
+    }
+    
+    /* Related Learning Insights */
+    .insights-list {
+      margin: 30px 0;
+      padding-left: 20px;
+    }
+    
+    .insights-list li {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    
+    /* Previous / Next Article Navigation */
+    .article-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 40px;
+    }
+    
+    .nav-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .nav-card.next {
+      text-align: right;
+      align-items: flex-end;
+    }
+    
+    .nav-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .nav-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .nav-card.next .nav-card-label {
+      justify-content: flex-end;
+    }
+    
+    .nav-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      line-height: 1.4;
+      margin: 0;
+    }
+    
+    /* Modern Comment Section UI */
+    .comments-section {
+      margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 50px;
+    }
+    
+    .comments-title {
+      font-size: 24px;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    
+    .comment-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .comment-form h4 {
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .comment-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-app);
+      color: var(--text-primary);
+      outline: none;
+      resize: vertical;
+      font-family: var(--font-body);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    
+    .comment-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-app);
+      color: var(--text-primary);
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+    
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .comment-item {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .comment-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-glow);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .comment-content {
+      flex: 1;
+    }
+    
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .commenter-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .comment-date {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    
+    .comment-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    
+    .comment-reply-btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .comment-reply-btn:hover {
+      text-decoration: underline;
+    }
+    
+    /* Related Posts Area */
+    .related-posts {
+      margin-top: 80px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 60px;
+    }
+    
+    .related-title {
+      font-size: 28px;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      margin-bottom: 40px;
+      font-weight: 700;
+      text-align: center;
+    }
+    
+    /* CTA Premium Box */
+    .article-cta {
+      background: linear-gradient(135deg, hsla(262, 85%, 58%, 0.1) 0%, hsla(25, 95%, 53%, 0.1) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      text-align: center;
+      margin: 60px 0;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+    }
+    
+    .article-cta h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-weight: 800;
+    }
+    
+    .article-cta p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      line-height: 1.6;
+    }
+    
+    /* Newsletter Section Details style override */
+    .blog-newsletter-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    
+    .blog-newsletter-text h4 {
+      font-size: 20px;
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    
+    .blog-newsletter-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+    
+    .blog-newsletter-form {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+      max-width: 450px;
+    }
+    
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 32px;
+      }
+      .featured-banner {
+        height: 300px;
+      }
+      .example-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .article-nav {
+        grid-template-columns: 1fr;
+      }
+      .blog-newsletter-wrap {
+        flex-direction: column;
+        text-align: center;
+      }
+      .blog-newsletter-form {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Layout -->
+  <main class="article-wrap">
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted); margin: 0 8px;"></i>
+        <a href="blog.html">Blog</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted); margin: 0 8px;"></i>
+        <span style="color: var(--primary); font-weight: 600;">Japanese Grammar</span>
+      </div>
+      
+      <h1 class="article-title">Understanding the Difference Between WA (は) and GA (が)</h1>
+      
+      <div class="article-meta">
+        <div class="author-profile">
+          <div class="author-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; border: 2px solid var(--primary);">YT</div>
+          <div>
+            <div class="author-name">Yuki Tanaka</div>
+            <div class="author-role">Head of Eastern Languages Division</div>
+          </div>
+        </div>
+        
+        <div class="meta-details">
+          <span><i class="fa-regular fa-calendar"></i> April 29, 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 6 Min Read</span>
+          <span><i class="fa-solid fa-tag"></i> Japanese Grammar</span>
+        </div>
+        
+        <div class="share-row">
+          <a href="#" class="share-btn" title="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="share-btn" title="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="share-btn" title="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <button class="share-btn" id="copyLinkBtn" title="Copy Link"><i class="fa-solid fa-link"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Large Featured Banner -->
+    <div class="featured-banner">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200" alt="Japanese Calligraphy Particles Wa and Ga Learning Guide">
+    </div>
+
+    <!-- Rich Article Content -->
+    <article class="rich-content">
+      <p>For almost every student of the Japanese language, the choice between the particles <strong>WA (は)</strong> and <strong>GA (が)</strong> represents the ultimate grammatical hurdle. Because both particles are frequently translated in English as simple markers for the subject of a sentence, their separate functions look identical on paper.</p>
+      
+      <p>However, WA and GA play entirely different structural and psychological roles in Japanese conversation. By demystifying the distinction between the <strong>Topic Marker</strong> (WA) and the <strong>Subject Marker</strong> (GA), you can unlock authentic spoken fluency and express yourself exactly like a native speaker.</p>
+
+      <h2>The Spot-Light Rule: Topic vs. Subject</h2>
+      <p>The easiest way to understand the difference is to visualize a theatrical spotlight. <strong>WA (は)</strong> is the Topic Marker. It places a broad spotlight on a general subject, signaling: <em>"As for this topic, let me tell you about it."</em> The important new information in the sentence always comes <strong>after</strong> WA.</p>
+      
+      <p>Conversely, <strong>GA (が)</strong> is the Subject Marker. It acts like a sharp, narrow spotlight that points directly to one specific noun, answering the question: <em>"Who or what exactly is the one doing the action?"</em> The crucial information comes <strong>before</strong> GA.</p>
+
+      <!-- Highlighted Pull Quote -->
+      <div class="pull-quote">
+        <p>"WA brings a topic onto the conversational stage. GA points a finger to specify exactly who is performing the act on that stage."</p>
+        <cite>Yuki Tanaka, Native Japanese Lead</cite>
+      </div>
+
+      <h2>Example Explanation: Suki (Like) Formulas</h2>
+      <p>In Japanese, preferences like 'suki' (to like) are technically adjectives, meaning the thing you like is the subject of the sentence. Therefore, we utilize the standard formula: <strong>[Topic] は [Object of Preference] が 好きです</strong>.</p>
+
+      <!-- Example comparison grid -->
+      <div class="example-grid">
+        <div class="example-card correct">
+          <span class="example-label">Correct Natural Particle Flow</span>
+          <div class="example-sentence">私は犬が好きです。</div>
+          <div class="example-translation">Watashi wa inu ga suki desu. (As for me, dogs are liked.)</div>
+          <p class="example-explanation">This is the natural, polite way to state your preferences. 'Watashi' is the general topic, and 'inu' (dogs) is the specific subject of your preference.</p>
+        </div>
+        <div class="example-card incorrect">
+          <span class="example-label">Incorrect / Redundant Flow</span>
+          <div class="example-sentence">私が犬は好きです。</div>
+          <div class="example-translation">Watashi ga inu wa suki desu. (I am the specific one who likes dogs.)</div>
+          <p class="example-explanation">This sounds highly dramatic and argumentative. It sounds as if you are correcting someone, insisting: 'No, *I* am the one who likes dogs, not anyone else!'</p>
+        </div>
+      </div>
+
+      <!-- Language learning tip box -->
+      <div class="tip-box">
+        <div class="tip-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="tip-content">
+          <h4>Fluentra Pro-Tip: The Question Word Test</h4>
+          <p>If a sentence contains a question word (like *dare* [who], *nani* [what], or *doko* [where]), you must <strong>always</strong> use <strong>GA (が)</strong>, never WA. For example: <strong>誰が来ましたか？</strong> (Dare ga kimashitaka? / Who came?).</p>
+        </div>
+      </div>
+
+      <h2>Contrastive WA: The Hidden Undercurrent</h2>
+      <p>Beyond marking general topics, WA carries a powerful secondary role: signaling <strong>contrast</strong>. When you mark one noun with WA in a specific comparison context, it strongly implies that the statement does *not* apply to other nouns in that category.</p>
+
+      <!-- Key Takeaways Box -->
+      <div class="takeaways-box">
+        <h4><i class="fa-solid fa-list-check"></i> WA and GA Key Takeaways</h4>
+        <ul class="takeaways-list">
+          <li><i class="fa-solid fa-circle-check"></i> <strong>WA introduces the topic:</strong> It sets the stage for what the sentence is broadly about.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>GA specifies the actor:</strong> It specifies the exact, singular actor of the predicate.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Focus shifts:</strong> With WA, the emphasis is on the explanation. With GA, the emphasis is on the subject itself.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Question words trigger GA:</strong> Who, what, and where always demand 'GA' in active query states.</li>
+        </ul>
+      </div>
+
+      <h2>Summary Table: Topic vs Subject</h2>
+      <p>Let's map out a direct cognitive cheat-sheet to automate your choice in Japanese conversation:</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 30px 0; border: 1px solid var(--border-color); font-size: 14px;">
+        <thead>
+          <tr style="background: var(--bg-card); border-bottom: 2px solid var(--border-color);">
+            <th style="padding: 12px; text-align: left; font-weight: 700; color: var(--text-primary);">Feature</th>
+            <th style="padding: 12px; text-align: left; font-weight: 700; color: var(--text-primary);">WA (は) - Topic Marker</th>
+            <th style="padding: 12px; text-align: left; font-weight: 700; color: var(--text-primary);">GA (が) - Subject Marker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">Primary Role</td>
+            <td style="padding: 12px;">Sets the general topic ("As for...")</td>
+            <td style="padding: 12px;">Marks the specific subject of the action</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">Information Focus</td>
+            <td style="padding: 12px;">Focuses on what comes *after* the particle</td>
+            <td style="padding: 12px;">Focuses on what comes *before* the particle</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">With Question Words</td>
+            <td style="padding: 12px;">Never used directly with *dare/nani*</td>
+            <td style="padding: 12px;">Always used directly with question words</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Related Learning Insights</h2>
+      <p>To further advance your JLPT N5/N4 particle foundations, study our matching structural audio guides:</p>
+      <ul class="insights-list">
+        <li><strong>Direction Particles:</strong> Mastering the nuances between NI (に) and E (へ).</li>
+        <li><strong>Transitive vs Intransitive:</strong> Choosing between WO (を) and GA (が) for action verbs.</li>
+        <li><strong>Polite Speech:</strong> The fundamentals of Desu/Masu forms in daily corporate exchanges.</li>
+      </ul>
+    </article>
+
+    <!-- Professional CTA Box -->
+    <div class="article-cta">
+      <h3>Struggling with JLPT Particles?</h3>
+      <p>Join Fluentra's native, live Japanese conversational cohorts capped at 5 students. Learn to speak naturally through immersive speak-lounge challenges.</p>
+      <a href="courses.html" class="btn btn-primary">Join Japanese Course</a>
+    </div>
+
+    <!-- Previous / Next Navigation -->
+    <nav class="article-nav">
+      <a href="blog-ielts-writing.html" class="nav-card">
+        <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Previous Article</span>
+        <h4 class="nav-card-title">Cracking IELTS Academic Writing Task 2 for Band 8+</h4>
+      </a>
+      <a href="blog-french-conjugations.html" class="nav-card next">
+        <span class="nav-card-label">Next Article <i class="fa-solid fa-arrow-right"></i></span>
+        <h4 class="nav-card-title">Irregular French Conjugations: Etre, Avoir, Aller Sprints</h4>
+      </a>
+    </nav>
+
+    <!-- Modern Comment Section UI -->
+    <section class="comments-section">
+      <h3 class="comments-title"><i class="fa-regular fa-comments"></i> Reader Discussion (2)</h3>
+      
+      <!-- Comment Form -->
+      <div class="comment-form">
+        <h4>Leave a Conversational Reply</h4>
+        <form id="blogCommentForm">
+          <textarea class="comment-textarea" placeholder="Share your particle insights or ask Tanaka Sensei questions..." required></textarea>
+          <div class="form-row">
+            <input type="text" class="comment-input" placeholder="Your Name" required>
+            <input type="email" class="comment-input" placeholder="Your Email (kept private)" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="padding: 12px 30px; border: none; cursor: pointer;">Post Comment</button>
+        </form>
+      </div>
+
+      <!-- Comments List -->
+      <div class="comments-list">
+        <div class="comment-item">
+          <div class="comment-avatar">AH</div>
+          <div class="comment-content">
+            <div class="comment-meta">
+              <span class="commenter-name">Alan H. (JLPT N5 Candidate)</span>
+              <span class="comment-date">4 days ago</span>
+            </div>
+            <p class="comment-text">The "spotlight" analogy is absolutely beautiful. I used to guess particles randomly on my mock tests, but asking myself 'is the focus before or after' makes it immediately obvious. Arigatou, Tanaka Sensei!</p>
+            <a href="#" class="comment-reply-btn"><i class="fa-solid fa-reply"></i> Reply</a>
+          </div>
+        </div>
+
+        <div class="comment-item" style="margin-left: 50px;">
+          <div class="comment-avatar" style="background: var(--secondary-glow); color: var(--secondary);">YT</div>
+          <div class="comment-content">
+            <div class="comment-meta">
+              <span class="commenter-name">Yuki Tanaka (Author)</span>
+              <span class="comment-date">3 days ago</span>
+            </div>
+            <p class="comment-text">Douitashimashite, Alan! Particles are all about directing the listener's focus. Once you visualize the stage spotlight, your particle choices will flow naturally. Keep practicing in our secure speak-lounges!</p>
+            <a href="#" class="comment-reply-btn"><i class="fa-solid fa-reply"></i> Reply</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Articles Carousel/Grid -->
+    <section class="related-posts">
+      <h3 class="related-title">You Might Also Enjoy</h3>
+      <div class="grid-3" style="margin-top: 30px;">
+        <!-- Post 4 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800" alt="French Verbs Guide">
+            <span class="blog-category">French Vocabulary</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> April 12, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 7 Min Read</span>
+            </div>
+            <h3><a href="blog-french-conjugations.html">Irregular Verb Conjugations: Etre, Avoir, Aller Sprints</a></h3>
+            <p class="blog-desc">Conjugating irregular French verbs doesn't have to be boring. We share three memory-anchoring audio songs to automate your present-tense controls.</p>
+          </div>
+        </div>
+
+        <!-- Post 5 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Business English Idioms Guide">
+            <span class="blog-category">Business English</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> April 05, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 4 Min Read</span>
+            </div>
+            <h3><a href="blog-english-idioms.html">10 English Idioms to Sound Premium in Corporate Boards</a></h3>
+            <p class="blog-desc">Stand out during executive presentations and international negotiations by utilizing natural, premium idioms instead of simple vocabulary.</p>
+          </div>
+        </div>
+
+        <!-- Post 6 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=800" alt="Spanish Preterite Guide">
+            <span class="blog-category">Spanish Grammar</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> March 24, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 9 Min Read</span>
+            </div>
+            <h3><a href="blog-spanish-past-tenses.html">Preterite vs Imperfect: The Ultimate Spanish Past Tense Choice</a></h3>
+            <p class="blog-desc">Struggling to select between Preterito Indefinido and Preterito Imperfecto? We detail the exact duration vs background guidelines you need.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Elegant Newsletter Section -->
+    <div class="blog-newsletter-wrap">
+      <div class="blog-newsletter-text">
+        <h4>Get Actionable Cheat Sheets</h4>
+        <p>Sign up to receive our monthly grammatical formulas and language tips direct to your inbox.</p>
+      </div>
+      <form class="blog-newsletter-form" aria-label="Blog Newsletter Signup">
+        <input type="email" class="comment-input" placeholder="Your Email Address" required style="flex: 1;">
+        <button type="submit" class="btn btn-primary" style="padding: 0 24px; border: none; cursor: pointer;"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Signup Column -->
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter Subscription Form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email address">
+            <button type="submit" aria-label="Submit subscription"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search Academy Modal">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close modal"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search Input">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Copy link functionality
+    const copyLinkBtn = document.getElementById('copyLinkBtn');
+    if (copyLinkBtn) {
+      copyLinkBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const originalHTML = copyLinkBtn.innerHTML;
+          copyLinkBtn.innerHTML = '<i class="fa-solid fa-check" style="color: #10b981;"></i>';
+          setTimeout(() => {
+            copyLinkBtn.innerHTML = originalHTML;
+          }, 2000);
+        });
+      });
+    }
+    
+    // Comment submit mock
+    const commentForm = document.getElementById('blogCommentForm');
+    if (commentForm) {
+      commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = commentForm.querySelector('.comment-textarea').value;
+        const name = commentForm.querySelectorAll('.comment-input')[0].value;
+        
+        const list = document.querySelector('.comments-list');
+        const item = document.createElement('div');
+        item.className = 'comment-item';
+        item.style.animation = 'fadeIn 0.5s ease forwards';
+        
+        // Get initials
+        const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+        
+        item.innerHTML = `
+          <div class="comment-avatar" style="background: var(--primary); color: white;">${initials}</div>
+          <div class="comment-content">
+            <div class="comment-meta">
+              <span class="commenter-name">${name}</span>
+              <span class="comment-date">Just now</span>
+            </div>
+            <p class="comment-text">${text}</p>
+            <a href="#" class="comment-reply-btn"><i class="fa-solid fa-reply"></i> Reply</a>
+          </div>
+        `;
+        
+        list.insertBefore(item, list.firstChild);
+        commentForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>

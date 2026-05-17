@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Our Office | Fluentra Academy</title>
+  <meta name="description" content="Get in touch with Fluentra Academy counselors. Ask about class timings, tuition plans, Goethe certificate prep, and IELTS preparations.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Hero Breadcrumb Header -->
+  <section class="sub-hero" id="contactSubHero">
+    <div class="container">
+      <h1>Contact Our Counselors</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted);"></i>
+        <span>Contact</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info Grid Section -->
+  <section class="section" id="contactFormSection">
+    <div class="container contact-grid">
+      <!-- Left Column: Info Blocks -->
+      <div class="contact-info-wrap">
+        <!-- Address -->
+        <div class="contact-info-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Central Office Campus</h3>
+            <p>54 EdTech Boulevard, Suite 200, <br>London, Greater London, EC2V 6DL, UK</p>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-info-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Call Center & Admissions</h3>
+            <p>Support Call: +44 20 7946 0958<br>Toll-Free line: +44 808 196 0342</p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-info-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Academy Support Emails</h3>
+            <p>General Query: support@auralingo.academy<br>Admissions: register@auralingo.academy</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Validated Contact Form -->
+      <div class="contact-form-card">
+        <h3 style="font-size: 24px; margin-bottom: 8px;">Send Us a Message</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px;">Have questions about admission processes, course levels, or standard tuition structures? Submit details below.</p>
+        
+        <form id="academyContactForm" novalidate aria-label="Academy Registration Inquiry Form">
+          <div class="contact-form-grid">
+            <!-- Name -->
+            <div class="form-group">
+              <label for="contactName">Your Full Name *</label>
+              <input type="text" id="contactName" class="form-input" required placeholder="e.g. John Doe" aria-required="true">
+              <span class="form-error-msg"><i class="fa-solid fa-circle-exclamation"></i> Please enter your name (min 2 characters)</span>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+              <label for="contactEmail">Email Address *</label>
+              <input type="email" id="contactEmail" class="form-input" required placeholder="e.g. john@example.com" aria-required="true">
+              <span class="form-error-msg"><i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address</span>
+            </div>
+          </div>
+          <!-- Subject -->
+          <div class="form-group">
+            <label for="contactSubject">Inquiry Subject *</label>
+            <input type="text" id="contactSubject" class="form-input" required placeholder="e.g. German Goethe A2 Level Timing Options" aria-required="true">
+            <span class="form-error-msg"><i class="fa-solid fa-circle-exclamation"></i> Subject is required</span>
+          </div>
+          <!-- Message -->
+          <div class="form-group form-group-full">
+            <label for="contactMessage">Detailed Inquiry Message *</label>
+            <textarea id="contactMessage" class="form-input" required placeholder="Outline your linguistic goals or specific timing concerns..." aria-required="true"></textarea>
+            <span class="form-error-msg"><i class="fa-solid fa-circle-exclamation"></i> Message cannot be blank</span>
+          </div>
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span>Send Secure Inquiry</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embedded Google Map Block -->
+  <section class="container" id="googleMapBlock">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9056637375253!2d-0.0936173233802937!3d51.514946371816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTEzMCc1My44Ik4gMMKwMDUnMjguMSJX!5e0!3m2!1sen!2suk!4v1715935000000!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fluentra Academy Office Campus Map Location"></iframe>
+    </div>
+  </section>
+
+  <!-- Integrated FAQ Accordion block -->
+  <section class="section" id="contactFAQAccordionSection">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-title-wrap">
+        <span class="section-badge">Help Desk Accordion</span>
+        <h2 class="section-title">Quick <span>FAQ Highlights</span></h2>
+        <p class="section-subtitle">Read quick answers to timing and subscription queries before submitting your counseling message.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>How do the live conversational chatrooms work?</h3>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Conversational chatrooms are active 24/7. They are divided into proficiency tracks (A1, B1, etc.) and managed by native mentors who moderate dialogues, introduce fun vocabulary games, and evaluate active spoken pronunciations.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>Can I upgrade, downgrade, or cancel my plan at any time?</h3>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Absolutely. Fluentra features complete contract flexibility. You can modify, upgrade, or cancel your subscription plan directly from your dashboard in one click with zero penalty fees.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>Do I get official graduation certificates upon completion?</h3>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Yes. Upon passing the module-end writing audits and oral accent checks, we issue a secure, certified Fluentra Language Graduation Certificate outlining your achieved CEFR level (A1 to C2).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter Form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email Input">
+            <button type="submit" aria-label="Submit Button"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search Dialog modal">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close dialog"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search input text box">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

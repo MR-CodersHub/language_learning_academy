@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy Course Catalog | Fluentra Academy</title>
+  <meta name="description" content="Search and filter modern courses for IELTS, Spoken English, German Goethe, French DELF, Japanese JLPT, Korean TOPIK, Spanish DELE, and Business English.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link active">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Hero Breadcrumb Header -->
+  <section class="sub-hero" id="coursesSubHero">
+    <div class="container">
+      <h1>Language Classes Directory</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted);"></i>
+        <span>Courses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Realtime Search & Filtering Catalog Section -->
+  <section class="section" id="courseCatalogListingSection">
+    <div class="container">
+      <!-- Search Input Container -->
+      <div class="search-bar-wrap">
+        <div class="search-input-wrap">
+          <input type="text" id="courseSearchInput" placeholder="Search by class titles, mentor names, or key subjects..." aria-label="Search Catalog Input">
+          <i class="fa-solid fa-magnifying-glass search-btn" style="color: var(--primary);"></i>
+        </div>
+      </div>
+
+      <!-- Filter Buttons/Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="All">All Curricula</button>
+        <button class="filter-btn" data-filter="English">English</button>
+        <button class="filter-btn" data-filter="German">German</button>
+        <button class="filter-btn" data-filter="French">French</button>
+        <button class="filter-btn" data-filter="Japanese">Japanese</button>
+        <button class="filter-btn" data-filter="Korean">Korean</button>
+        <button class="filter-btn" data-filter="Spanish">Spanish</button>
+        <button class="filter-btn" data-filter="IELTS">IELTS Prep</button>
+        <button class="filter-btn" data-filter="Spoken English">Spoken English</button>
+        <button class="filter-btn" data-filter="Business English">Business English</button>
+      </div>
+
+      <!-- Dynamic Course Cards Grid Target -->
+      <div class="grid-3" id="coursesCatalogGrid">
+        <!-- Rendered dynamically by courses.js script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter Subscription Form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Newsletter input">
+            <button type="submit" aria-label="Submit Button"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Global Search">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close dialog"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search Text">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+  <!-- Course Listing Driver -->
+  <script src="assets/js/courses.js"></script>
+</body>
+</html>

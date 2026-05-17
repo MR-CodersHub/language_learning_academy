@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affordable Tuition Plans | Fluentra Academy</title>
+  <meta name="description" content="Choose your perfect tuition plan. Standard Monthly or Yearly options with a 20% discount. Simple, transparent pricing for all scholars.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link active">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Hero Breadcrumb Header -->
+  <section class="sub-hero" id="pricingSubHero">
+    <div class="container">
+      <h1>Academy Tuition Tiers</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted);"></i>
+        <span>Pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tuition Billing Section -->
+  <section class="section" id="academyTuitionGridSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Flexible Plans</span>
+        <h2 class="section-title">Tuition <span>Tiers & Memberships</span></h2>
+        <p class="section-subtitle">Affordable, transparent premium membership models. Upgrade, downgrade, or cancel any time.</p>
+      </div>
+
+      <!-- Pricing Switcher Slider -->
+      <div class="pricing-toggle-wrap">
+        <span class="pricing-label">Monthly Billing</span>
+        <div class="pricing-switch-bg" id="pricingToggleSwitch" role="button" aria-label="Toggle pricing yearly">
+          <div class="pricing-switch-ball"></div>
+        </div>
+        <span class="pricing-label">Yearly Billing</span>
+        <span class="pricing-badge-save">Save 20%</span>
+      </div>
+
+      <div class="grid-3">
+        <!-- Starter Track -->
+        <div class="pricing-card">
+          <span class="pricing-tier">Starter Track</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Perfect for language enthusiasts exploring basic vocabulary.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="29" data-yearly="23">29</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> 3 Languages Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> 10 Hours of Live Lectures</li>
+            <li><i class="fa-solid fa-circle-check"></i> Standard Writing Quizzes</li>
+            <li><i class="fa-solid fa-xmark"></i> Mock Testing Audits</li>
+            <li><i class="fa-solid fa-xmark"></i> Native Mentor Support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+
+        <!-- Fluency Pro -->
+        <div class="pricing-card premium">
+          <span class="pricing-tier" style="color: var(--secondary);">Fluency Pro</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Ideal for active scholars targeting career transitions.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="59" data-yearly="47">59</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> All 9+ Languages Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Live Lectures</li>
+            <li><i class="fa-solid fa-circle-check"></i> Advanced Writing Feedback</li>
+            <li><i class="fa-solid fa-circle-check"></i> Goethe & IELTS Mock Tests</li>
+            <li><i class="fa-solid fa-circle-check"></i> Active Speaking Chatrooms</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+
+        <!-- Elite Academy -->
+        <div class="pricing-card">
+          <span class="pricing-tier">Elite Academy</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Personal 1-on-1 intensive preparation with executive coaches.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="99" data-yearly="79">99</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> Custom Curriculum Path</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1-on-1 Weekly Tutoring</li>
+            <li><i class="fa-solid fa-circle-check"></i> Native Accent Testing</li>
+            <li><i class="fa-solid fa-circle-check"></i> 100% Goethe Pass Guarantee</li>
+            <li><i class="fa-solid fa-circle-check"></i> Elite Alumni Network</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter sub form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email Field">
+            <button type="submit" aria-label="Submit Button"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search Dialog">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Query Input">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

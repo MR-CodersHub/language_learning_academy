@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal Panel — Fluentra Academy</title>
+
+  <!-- FontAwesome Icon Suite -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Admin specific layout styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-app);
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .admin-container {
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    /* Elegant Sidebar Style */
+    .admin-sidebar {
+      width: 280px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: fixed;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      transition: all var(--transition-normal);
+    }
+
+    .admin-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .admin-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--gradient-secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 4px 15px hsla(var(--secondary-hsl), 0.3);
+    }
+
+    .admin-logo-text {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .admin-profile-mini {
+      padding: 15px;
+      background: var(--secondary-glow);
+      border: 1px solid rgba(var(--secondary-hsl), 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+
+    .admin-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--secondary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .admin-info h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 2px;
+      color: var(--text-primary);
+    }
+
+    .admin-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .admin-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .admin-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .admin-menu-item i {
+      font-size: 16px;
+      width: 20px;
+    }
+
+    .admin-menu-item:hover,
+    .admin-menu-item.active {
+      background: var(--secondary-glow);
+      color: var(--secondary);
+    }
+
+    .admin-menu-item.logout-btn:hover {
+      background: rgba(239, 68, 68, 0.08);
+      color: #ef4444;
+    }
+
+    /* Main Content Area */
+    .admin-content-area {
+      flex: 1;
+      margin-left: 280px;
+      padding: 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transition: all var(--transition-normal);
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Topbar Header */
+    .admin-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .admin-page-title h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .admin-page-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .admin-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Stats Grid */
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .admin-stat-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all var(--transition-fast);
+    }
+
+    .admin-stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--secondary-light);
+    }
+
+    .stat-icon-admin {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .stat-icon-admin.purple {
+      background: rgba(139, 92, 246, 0.1);
+      color: rgb(139, 92, 246);
+    }
+
+    .stat-icon-admin.orange {
+      background: rgba(249, 115, 22, 0.1);
+      color: rgb(249, 115, 22);
+    }
+
+    .stat-icon-admin.emerald {
+      background: rgba(16, 185, 129, 0.1);
+      color: rgb(16, 185, 129);
+    }
+
+    .stat-icon-admin.blue {
+      background: rgba(59, 130, 246, 0.1);
+      color: rgb(59, 130, 246);
+    }
+
+    .stat-meta-admin h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .stat-meta-admin p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Layout Cards Split */
+    .admin-layout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 30px;
+    }
+
+    .admin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .admin-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .admin-card-header h3 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    /* Responsive Table Styles */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .admin-table th {
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border-color);
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+    }
+
+    .admin-table td {
+      padding: 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+
+    .tutor-avatar-td {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    .tutor-avatar-td img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Visual CSS Chart */
+    .chart-container-box {
+      height: 250px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 20px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .chart-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .chart-bar {
+      width: 100%;
+      max-width: 40px;
+      border-radius: 6px 6px 0 0;
+      background: var(--gradient-secondary);
+      transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .chart-bar.purple {
+      background: var(--gradient-primary);
+    }
+
+    .chart-tooltip {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text-primary);
+      color: var(--bg-card);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .chart-bar:hover .chart-tooltip {
+      opacity: 1;
+    }
+
+    .chart-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Dynamic Tabs Pane */
+    .tab-content-pane {
+      display: none;
+    }
+
+    .tab-content-pane.active {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile sidebar overlay backdrop */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 99;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .sidebar-overlay.active {
+      display: block;
+    }
+
+    /* Topbar flex layout fix */
+    .admin-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: nowrap;
+    }
+
+    /* Sidebar toggle — hidden desktop, shown on mobile */
+    .dash-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .dash-menu-toggle:hover {
+      background: var(--secondary);
+      color: #fff;
+      border-color: var(--secondary);
+    }
+
+    .admin-page-title {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .admin-page-title h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .admin-page-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .admin-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 1200px) {
+      .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .admin-layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .admin-sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+
+      .admin-sidebar.active {
+        transform: translateX(0);
+      }
+
+      .admin-content-area {
+        margin-left: 0 !important;
+        padding: 20px;
+      }
+
+      /* Show hamburger on tablet/mobile */
+      .dash-menu-toggle {
+        display: flex;
+      }
+
+      .admin-page-title h1 {
+        font-size: 20px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+      
+      .admin-page-title p {
+        font-size: 12px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .admin-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── 480px: Small Mobile ── */
+    @media (max-width: 480px) {
+      .admin-content-area {
+        margin-left: 0 !important;
+        padding: 14px 12px;
+        gap: 18px;
+      }
+
+      .admin-topbar {
+        gap: 10px;
+        padding-bottom: 12px;
+      }
+
+      .admin-page-title h1 {
+        font-size: 17px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .admin-page-title p {
+        font-size: 11px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .admin-topbar-actions {
+        gap: 8px;
+      }
+
+      /* Hide theme-toggle label text if any */
+      .admin-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .admin-card {
+        padding: 16px;
+      }
+
+      .admin-card-header h3 {
+        font-size: 16px;
+      }
+
+      .admin-layout-grid {
+        gap: 16px;
+      }
+
+      .chart-container-box {
+        height: 180px;
+        gap: 8px;
+      }
+    }
+
+    /* ── 360px: Tiny screens ── */
+    @media (max-width: 380px) {
+      .admin-content-area {
+        margin-left: 0 !important;
+        padding: 10px 8px;
+      }
+
+      .admin-topbar {
+        gap: 8px;
+      }
+
+      .admin-page-title h1 {
+        font-size: 14px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .admin-page-title p {
+        display: none;
+      }
+
+      .dash-menu-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+      }
+
+      /* Scale down topbar action icons */
+      .admin-topbar-actions .theme-toggle {
+        transform: scale(0.85);
+        transform-origin: right center;
+      }
+
+      .admin-topbar-actions .btn-circle,
+      .admin-topbar-actions .notification-bell {
+        width: 34px !important;
+        height: 34px !important;
+      }
+
+      .admin-stat-item {
+        padding: 16px 12px;
+        gap: 14px;
+      }
+
+      .stat-icon-admin {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+
+      .stat-meta-admin h3 {
+        font-size: 20px;
+      }
+
+      .admin-card {
+        padding: 12px 10px;
+      }
+
+      .admin-sidebar {
+        max-width: 280px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="admin-container">
+
+    <!-- Sidebar Overlay Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <a href="index.html" class="admin-logo-wrap">
+        <div class="admin-logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3); width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">
+          <i class="fa-solid fa-user-shield" style="transform: rotate(5deg);"></i>
+        </div>
+        <span class="admin-logo-text" style="font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #7C3AED, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: var(--font-heading); font-size: 20px;">Fluentra</span>
+      </a>
+
+      <!-- Admin details -->
+      <div class="admin-profile-mini">
+        <div class="admin-avatar">A</div>
+        <div class="admin-info">
+          <h4>Admin Portal</h4>
+          <p>System Manager</p>
+        </div>
+      </div>
+
+      <!-- Nav menus list -->
+      <nav class="admin-menu">
+        <button class="admin-menu-item active" data-tab="dashboard">
+          <i class="fa-solid fa-chart-line"></i> Dashboard
+        </button>
+        <button class="admin-menu-item" data-tab="students">
+          <i class="fa-solid fa-user-graduate"></i> Students
+        </button>
+        <button class="admin-menu-item" data-tab="teachers">
+          <i class="fa-solid fa-chalkboard-user"></i> Instructors
+        </button>
+        <button class="admin-menu-item" data-tab="courses">
+          <i class="fa-solid fa-book-bookmark"></i> Courses
+        </button>
+        <button class="admin-menu-item" data-tab="exams">
+          <i class="fa-solid fa-square-check"></i> Seal Approvals
+        </button>
+        <button class="admin-menu-item" data-tab="settings">
+          <i class="fa-solid fa-sliders"></i> Settings
+        </button>
+        <div class="dropdown-divider" style="height: 1px; background: var(--border-color); margin: 15px 0;"></div>
+        <button class="admin-menu-item logout-btn" id="adminLogoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Content Area Viewport -->
+    <main class="admin-content-area">
+
+      <!-- Topbar Header -->
+      <header class="admin-topbar">
+        <!-- Hamburger drawer trigger -->
+        <button class="dash-menu-toggle" id="sidebarToggleBtn" aria-label="Open sidebar menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="admin-page-title">
+          <h1 id="tabHeaderTitle">Global Systems Roster</h1>
+          <p id="tabHeaderSub">Academy registrations, revenue streams, and credentials seals</p>
+        </div>
+
+        <div class="admin-topbar-actions">
+          <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+            <div class="theme-toggle-ball"></div>
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <!-- Alerts Bell -->
+          <div class="btn-circle notification-bell"
+            style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-card); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary);">
+            <i class="fa-solid fa-bell"></i>
+            <span class="bell-badge"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Panes Viewports -->
+
+      <!-- 1. DASHBOARD PAGE -->
+      <section class="tab-content-pane active" id="pane-dashboard">
+
+        <!-- Stats Widgets -->
+        <div class="admin-stats-grid">
+          <div class="admin-stat-item">
+            <div class="stat-icon-admin purple">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+            <div class="stat-meta-admin">
+              <h3>15,420</h3>
+              <p>Total Students</p>
+            </div>
+          </div>
+          <div class="admin-stat-item">
+            <div class="stat-icon-admin orange">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="stat-meta-admin">
+              <h3>12</h3>
+              <p>Active Programs</p>
+            </div>
+          </div>
+          <div class="admin-stat-item">
+            <div class="stat-icon-admin emerald">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="stat-meta-admin">
+              <h3>$78,400</h3>
+              <p>Monthly Revenue</p>
+            </div>
+          </div>
+          <div class="admin-stat-item">
+            <div class="stat-icon-admin blue">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="stat-meta-admin">
+              <h3 id="pendingSealsCount">4</h3>
+              <p>Seals Pending</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Layout split -->
+        <div class="admin-layout-grid">
+          <!-- Left: Revenue Statistics Chart -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3>Enrollment Analytics (2026)</h3>
+            </div>
+            <div class="chart-container-box">
+              <div class="chart-column">
+                <div class="chart-bar purple" style="height: 45%;">
+                  <span class="chart-tooltip">4,500</span>
+                </div>
+                <span class="chart-label">Jan</span>
+              </div>
+              <div class="chart-column">
+                <div class="chart-bar" style="height: 60%;">
+                  <span class="chart-tooltip">6,200</span>
+                </div>
+                <span class="chart-label">Feb</span>
+              </div>
+              <div class="chart-column">
+                <div class="chart-bar purple" style="height: 75%;">
+                  <span class="chart-tooltip">8,900</span>
+                </div>
+                <span class="chart-label">Mar</span>
+              </div>
+              <div class="chart-column">
+                <div class="chart-bar" style="height: 90%;">
+                  <span class="chart-tooltip">12,400</span>
+                </div>
+                <span class="chart-label">Apr</span>
+              </div>
+              <div class="chart-column">
+                <div class="chart-bar purple" style="height: 98%;">
+                  <span class="chart-tooltip">15,420</span>
+                </div>
+                <span class="chart-label">May</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Pending Actions -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3>Quick Seals Panel</h3>
+            </div>
+            <div class="schedule-list" id="quickSealsContainer">
+              <div class="schedule-item" style="border-left: 4px solid var(--secondary);" id="seal-row-1">
+                <div class="sched-details">
+                  <h4>Jane Doe — IELTS Prep</h4>
+                  <p>Score: 96% • Exam Complete</p>
+                  <button class="btn-download-cert" style="margin-top:8px; border:none; padding:4px 12px;"
+                    onclick="approveSeal(1)">Approve Seal</button>
+                </div>
+              </div>
+              <div class="schedule-item" style="border-left: 4px solid var(--secondary);" id="seal-row-2">
+                <div class="sched-details">
+                  <h4>Max Mustermann — German A2</h4>
+                  <p>Score: 98% • Exam Complete</p>
+                  <button class="btn-download-cert" style="margin-top:8px; border:none; padding:4px 12px;"
+                    onclick="approveSeal(2)">Approve Seal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 2. STUDENTS LIST PAGE -->
+      <section class="tab-content-pane" id="pane-students">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Registered Scholars</h3>
+          </div>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Current Track</th>
+                  <th>Completed Drills</th>
+                  <th>Academic Grade</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jane Doe</td>
+                  <td>IELTS Academic Prep</td>
+                  <td>14 Milestones</td>
+                  <td>96% (A+)</td>
+                  <td><span
+                      style="background:rgba(16,185,129,0.1); color:#10b981; padding:3px 10px; border-radius:30px; font-weight:700; font-size:12px;">Active</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Max Mustermann</td>
+                  <td>German Mastery Path</td>
+                  <td>18 Milestones</td>
+                  <td>98% (A+)</td>
+                  <td><span
+                      style="background:rgba(16,185,129,0.1); color:#10b981; padding:3px 10px; border-radius:30px; font-weight:700; font-size:12px;">Active</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pierre Dubois</td>
+                  <td>French Fluency Track</td>
+                  <td>4 Milestones</td>
+                  <td>82% (B)</td>
+                  <td><span
+                      style="background:rgba(16,185,129,0.1); color:#10b981; padding:3px 10px; border-radius:30px; font-weight:700; font-size:12px;">Active</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. TEACHERS PAGE -->
+      <section class="tab-content-pane" id="pane-teachers">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Instructors & Linguists</h3>
+          </div>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Instructor</th>
+                  <th>Department</th>
+                  <th>Active Scholars</th>
+                  <th>Class Ratios</th>
+                  <th>Average Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="tutor-avatar-td">
+                      <img
+                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                        alt="Becker">
+                    </div>
+                    Dr. Kristin Becker
+                  </td>
+                  <td>German Head</td>
+                  <td>1,420 students</td>
+                  <td>12 Pods / wk</td>
+                  <td><i class="fa-solid fa-star" style="color:#f59e0b;"></i> 4.9</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tutor-avatar-td">
+                      <img
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+                        alt="Miller">
+                    </div>
+                    Jonathan Miller
+                  </td>
+                  <td>IELTS & Spoken English</td>
+                  <td>3,280 students</td>
+                  <td>16 Pods / wk</td>
+                  <td><i class="fa-solid fa-star" style="color:#f59e0b;"></i> 4.8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. COURSES PAGE -->
+      <section class="tab-content-pane" id="pane-courses">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Course Catalog Management</h3>
+            <button class="btn-download-cert"
+              style="background:var(--secondary); color:white; border:none; padding:8px 20px;"
+              onclick="alert('Creating a new course card mockup!')">+ Create Program</button>
+          </div>
+          <div class="active-course-row">
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Complete German Mastery: Zero to Fluent (A1-B2)</h4>
+                  <p>Capacity: 12,450 enrolled students • Level: Beginner</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Edit Syllabus</a>
+              </div>
+            </div>
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>IELTS Academic Exam Preparation Elite Masterclass</h4>
+                  <p>Capacity: 25,890 enrolled students • Level: Advanced</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Edit Syllabus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. EXAMS / SEALS APPROVAL PAGE -->
+      <section class="tab-content-pane" id="pane-exams">
+        <div class="admin-card">
+          <div class="dash-card-header">
+            <h3>Sealed Certificate Verification</h3>
+          </div>
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Target Exam</th>
+                  <th>Average Score</th>
+                  <th>Clear Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="table-seal-1">
+                  <td>Jane Doe</td>
+                  <td>IELTS Exam Prep</td>
+                  <td>96% (A+)</td>
+                  <td>May 12, 2026</td>
+                  <td><button class="btn-download-cert" style="border:none; padding:6px 15px;"
+                      onclick="approveSeal(1)">Approve Seal</button></td>
+                </tr>
+                <tr id="table-seal-2">
+                  <td>Max Mustermann</td>
+                  <td>German A2 Certificate</td>
+                  <td>98% (A+)</td>
+                  <td>May 14, 2026</td>
+                  <td><button class="btn-download-cert" style="border:none; padding:6px 15px;"
+                      onclick="approveSeal(2)">Approve Seal</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. SETTINGS PAGE -->
+      <section class="tab-content-pane" id="pane-settings">
+        <div class="admin-card">
+          <div class="dash-card-header">
+            <h3>System Settings</h3>
+          </div>
+          <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;"
+            onsubmit="alert('System Settings Saved!'); return false;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-weight: 700; font-size: 13px; display: block; margin-bottom: 8px;">Academy Global
+                Name</label>
+              <input type="text" value="Fluentra Global Academy"
+                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-app); color: var(--text-primary); outline: none;">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-weight: 700; font-size: 13px; display: block; margin-bottom: 8px;">Accreditation Seals
+                Number</label>
+              <input type="text" value="DE-5920-GOETHE"
+                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-app); color: var(--text-primary); outline: none;">
+            </div>
+            <button type="submit" class="btn btn-primary"
+              style="align-self: flex-start; border: none; padding: 12px 30px; cursor: pointer;">Save Settings</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Theme Engine
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const activeTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', activeTheme);
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = 'light';
+        if (currentTheme === 'light') newTheme = 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+
+    // Tab Control
+    const menuItems = document.querySelectorAll('.admin-menu-item[data-tab]');
+    const tabPanes = document.querySelectorAll('.tab-content-pane');
+
+    const switchTab = (tabId) => {
+      menuItems.forEach(item => {
+        if (item.getAttribute('data-tab') === tabId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      tabPanes.forEach(pane => {
+        if (pane.id === `pane-${tabId}`) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+
+      // Update Title & Header text based on tab selected
+      const pageTitle = document.getElementById('tabHeaderTitle');
+      const pageSub = document.getElementById('tabHeaderSub');
+
+      switch (tabId) {
+        case 'dashboard':
+          pageTitle.textContent = "Global Systems Roster";
+          pageSub.textContent = "Academy registrations, revenue streams, and credentials seals";
+          break;
+        case 'students':
+          pageTitle.textContent = "Registered Scholars";
+          pageSub.textContent = "Monitor individual study hours, CEFR metrics, and test logs";
+          break;
+        case 'teachers':
+          pageTitle.textContent = "Instructors & Linguists";
+          pageSub.textContent = "Manage Goethe and Sorbonne accredited department leads";
+          break;
+        case 'courses':
+          pageTitle.textContent = "Course Curricula Console";
+          pageSub.textContent = "Edit language level badges, durations, and enrollment quotas";
+          break;
+        case 'exams':
+          pageTitle.textContent = "Sealed Credentials Panel";
+          pageSub.textContent = "Review grades and release verified digital certificate credentials";
+          break;
+        case 'settings':
+          pageTitle.textContent = "Academy Configurations";
+          pageSub.textContent = "Manage global billing endpoints, email templates, and credentials seals";
+          break;
+      }
+    };
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const tabId = item.getAttribute('data-tab');
+        switchTab(tabId);
+      });
+    });
+
+    // Mobile responsive Sidebar drawer
+    const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+    const adminSidebar = document.getElementById('adminSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    const openSidebar = () => {
+      adminSidebar.classList.add('active');
+      if (sidebarOverlay) sidebarOverlay.classList.add('active');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeSidebar = () => {
+      adminSidebar.classList.remove('active');
+      if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    if (sidebarToggleBtn && adminSidebar) {
+      // Toggle on hamburger click
+      sidebarToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        adminSidebar.classList.contains('active') ? closeSidebar() : openSidebar();
+      });
+
+      // Auto-close when any menu item is clicked (mobile)
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          if (window.innerWidth <= 992) {
+            // Small delay so tab switch animates before sidebar slides away
+            setTimeout(closeSidebar, 120);
+          }
+        });
+      });
+
+      // Also close on logout click
+      const logoutBtn = document.getElementById('adminLogoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          if (window.innerWidth <= 992) closeSidebar();
+        });
+      }
+
+      // Close on outside tap (overlay click)
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+      }
+
+      document.addEventListener('click', (e) => {
+        if (
+          window.innerWidth <= 992 &&
+          adminSidebar.classList.contains('active') &&
+          !adminSidebar.contains(e.target) &&
+          !sidebarToggleBtn.contains(e.target) &&
+          (!sidebarOverlay || !sidebarOverlay.contains(e.target))
+        ) {
+          closeSidebar();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSidebar();
+      });
+    }
+
+    // Seal Approvals Actions
+    let sealsCount = 4;
+    const approveSeal = (id) => {
+      alert("Certificate officially sealed and verified! Verification key generated: AE-3890-SEAL.");
+
+      // Remove or update quick seals widgets
+      const quickWidget = document.getElementById(`seal-row-${id}`);
+      if (quickWidget) {
+        quickWidget.remove();
+      }
+
+      // Update tables row
+      const tableRow = document.getElementById(`table-seal-${id}`);
+      if (tableRow) {
+        tableRow.innerHTML = `
+          <td>Jane Doe</td>
+          <td>IELTS Exam Prep</td>
+          <td>96% (A+)</td>
+          <td>May 12, 2026</td>
+          <td><span style="background:rgba(16,185,129,0.1); color:#10b981; padding:5px 12px; border-radius:30px; font-weight:700; font-size:12px;">Sealed & Verified</span></td>
+        `;
+      }
+
+      sealsCount--;
+      document.getElementById('pendingSealsCount').textContent = sealsCount;
+    };
+
+    // Logout Action
+    document.getElementById('adminLogoutBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+
+  </script>
+</body>
+
+</html>

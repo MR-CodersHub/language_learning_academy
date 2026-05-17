@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluentra Academy | Elite Language Mastery</title>
+  <meta name="description" content="Unlock advanced fluency and global career scopes with Fluentra's premium interactive language learning academy.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link active">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="homeHeroSection">
+    <div class="container grid-2">
+      <!-- Left Column Content -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-sparkles"></i>
+          <span>Fluentra Elite Edition</span>
+        </div>
+        <h1 class="hero-title">Elevate Your <br>Global Voice <span>Today</span></h1>
+        <p class="hero-desc">Experience an advanced language training ecosystem designed for modern scholars. Combine native conversational cohorts, AI-powered accent reduction audits, and certified academic preps to reach native fluency 4x faster.</p>
+        
+        <div class="hero-actions">
+          <a href="courses.html" class="btn btn-primary">
+            <span>Explore Courses</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="contact.html" class="btn btn-secondary">
+            <span>Watch Campus Tour</span>
+            <i class="fa-solid fa-circle-play" style="color: var(--primary);"></i>
+          </a>
+        </div>
+        
+        <!-- Quick stats in Hero -->
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <h3>120+</h3>
+            <p>Native Mentors</p>
+          </div>
+          <div class="hero-stat-item" style="border-left: 2px solid var(--border-color); padding-left: 30px;">
+            <h3>99.2%</h3>
+            <p>Exam Success Score</p>
+          </div>
+          <div class="hero-stat-item" style="border-left: 2px solid var(--border-color); padding-left: 30px;">
+            <h3>15k+</h3>
+            <p>Satisfied Scholars</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column Visuals -->
+      <div class="hero-image-wrap">
+        <div class="hero-image-container">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Global students collaborating on bilingual curriculum">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands rolling trust banner -->
+  <section class="brands" id="brandRollSection">
+    <div class="container">
+      <div class="brands-wrapper">
+        <div class="brand-item"><i class="fa-brands fa-google"></i> Google Partner</div>
+        <div class="brand-item"><i class="fa-brands fa-microsoft"></i> Microsoft Ed</div>
+        <div class="brand-item"><i class="fa-brands fa-amazon"></i> AWS Scholar</div>
+        <div class="brand-item"><i class="fa-brands fa-stripe"></i> Stripe Global</div>
+        <div class="brand-item"><i class="fa-brands fa-airbnb"></i> Airbnb Travel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Why Choose Our Academy -->
+  <section class="section" id="whyChooseSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Academy Edge</span>
+        <h2 class="section-title">Why Choose <span>Our Academy</span></h2>
+        <p class="section-subtitle">We go beyond simple language applications, combining verified pedagogical science with digital immersion comfort.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1 -->
+        <div class="card-base" style="padding: 40px; background: var(--bg-card); display: flex; flex-direction: column; height: 100%;">
+          <div class="badge-icon purple" style="width: 50px; height: 50px; font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; background: var(--primary);">
+            <i class="fa-solid fa-microphone-lines"></i>
+          </div>
+          <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-primary);">AI Speech Accent Audits</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Receive immediate phonetic feedback on vowel alignments and pitch modulations via our integrated sound decibel software.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-base" style="padding: 40px; background: var(--bg-card); display: flex; flex-direction: column; height: 100%;">
+          <div class="badge-icon orange" style="width: 50px; height: 50px; font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; background: var(--secondary);">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-primary);">Oxbridge Designed Syllabus</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Every language track conforms perfectly to the European CEFR (A1-C2) curriculum, curated by Sorbonne and Oxford research deans.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-base" style="padding: 40px; background: var(--bg-card); display: flex; flex-direction: column; height: 100%;">
+          <div class="badge-icon purple" style="width: 50px; height: 50px; font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; background: var(--primary);">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--text-primary);">Guaranteed Certification</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Secure official graduation certificates recognized globally by corporations and international universities upon milestone clears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Learning Process Timeline -->
+  <section class="section section-bg-gradient" id="processTimelineSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">How It Works</span>
+        <h2 class="section-title">Your 4-Step <span>Learning Journey</span></h2>
+        <p class="section-subtitle">A highly calibrated, transparent milestone progression that guarantees accelerated results.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Step 1 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-content">
+            <h3>STEP 1</h3>
+            <h4 style="margin-bottom: 10px; font-size: 16px; color: var(--text-primary);">Custom Placement Audit</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Our curriculum experts evaluate your grammar knowledge, oral speed, and conversational accent to map your perfect learning starting point.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-content">
+            <h3>STEP 2</h3>
+            <h4 style="margin-bottom: 10px; font-size: 16px; color: var(--text-primary);">Live Micro-Group Immersion</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Engage in weekly interactive live classes capped at 5 students, led by native instructors focused on active spoken scenarios.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-content">
+            <h3>STEP 3</h3>
+            <h4 style="margin-bottom: 10px; font-size: 16px; color: var(--text-primary);">24/7 Global Speech Cohorts</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Practise vocabulary, review accents, and complete conversational challenges in our secure peer speak-rooms available day and night.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-content">
+            <h3>STEP 4</h3>
+            <h4 style="margin-bottom: 10px; font-size: 16px; color: var(--text-primary);">Official Graduation Certification</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Clear the module audit exams to receive a verifiable CEFR-compliant language degree, perfect for embassy filings and corporate resumes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Live Interactive Classes -->
+  <section class="section" id="liveClassesSection">
+    <div class="container grid-2 grid-2-reverse-mobile">
+      <!-- Left Column Visual -->
+      <div style="position: relative;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg);">
+          <!-- Mockup Live Screen -->
+          <div style="background: #0f172a; border-radius: var(--radius-md); padding: 20px; color: white; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+              <span style="font-size: 12px; font-weight: 600; color: #10b981; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-circle" style="font-size: 8px; animation: pulse 1.5s infinite;"></i> LIVE FRENCH COHORT
+              </span>
+              <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: var(--radius-full); font-size: 11px;">09:42 mins</span>
+            </div>
+            <!-- Interactive visual overlay mimicking class -->
+            <div style="text-align: center; margin: 30px 0;">
+              <i class="fa-solid fa-video" style="font-size: 40px; color: var(--primary); margin-bottom: 15px; display: block;"></i>
+              <h4 style="font-size: 18px; color: white; margin-bottom: 5px;">Dr. Kristin Becker</h4>
+              <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Analyzing French subjunctive pronunciation decibel metrics...</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: var(--radius-sm);">
+              <div style="width: 25px; height: 25px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: white;">JD</div>
+              <p style="font-size: 11px; margin: 0; color: rgba(255,255,255,0.8);"><strong>John Doe:</strong> Est-ce que c'est correct, Madame Becker?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column Description -->
+      <div style="padding-left: 20px;">
+        <span class="section-badge" style="background: var(--bg-card);">Micro-Group Immersion</span>
+        <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--text-primary);">Live Interactive <br>Classes That <span>Feel Real</span></h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">Ditch the passive pre-recorded lecture screens. Our custom EdTech video software displays vocal decibel charts, mouth alignment diagrams, and peer speech challenges to keep classrooms engaged.</p>
+        
+        <ul style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px;">
+          <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary);">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 4px;"></i> Max 5 Students per Class
+          </li>
+          <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary);">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 4px;"></i> Live Accent Wave Audits
+          </li>
+          <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary);">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 4px;"></i> Session Video Vaults
+          </li>
+          <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary);">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 4px;"></i> Peer Speech Pod Sprints
+          </li>
+        </ul>
+        <a href="courses.html" class="btn btn-primary">Join Live Classroom</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Language Certification Programs -->
+  <section class="section section-bg-gradient" id="certificationSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Exam Success</span>
+        <h2 class="section-title">Official <span>Certification Tracks</span></h2>
+        <p class="section-subtitle">Secure standard academic credentials recognized globally by visa embassies, immigration bureaus, and Fortune 500 teams.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Goethe -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; border-radius: var(--radius-sm); overflow: hidden; background: #e0f2fe; display: flex; align-items: center; justify-content: center;">
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=60" alt="German certification icon" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <h3 style="font-size: 18px; margin-bottom: 2px; color: var(--text-primary);">Goethe-Zertifikat</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700;">A1 TO C2 GERMAN</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">Master precise German compound nouns, prepositions cases, and formal writing required for German academic visas and employment.</p>
+          <a href="courses.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px; margin-top: auto; width: 100%;">Explore German Track</a>
+        </div>
+
+        <!-- IELTS -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; border-radius: var(--radius-sm); overflow: hidden; background: #fee2e2; display: flex; align-items: center; justify-content: center;">
+              <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=60" alt="IELTS certification icon" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <h3 style="font-size: 18px; margin-bottom: 2px; color: var(--text-primary);">IELTS Academic</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700;">BAND 8+ TARGET</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">Rigorous audits of writing charts coherence, advanced paragraph structures, and oral speed to guarantee a Band 8+ grade.</p>
+          <a href="courses.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px; margin-top: auto; width: 100%;">Explore IELTS Track</a>
+        </div>
+
+        <!-- DELE -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; border-radius: var(--radius-sm); overflow: hidden; background: #fef3c7; display: flex; align-items: center; justify-content: center;">
+              <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=60" alt="Spanish DELE certification icon" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <h3 style="font-size: 18px; margin-bottom: 2px; color: var(--text-primary);">DELE Cervantes</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700;">A1 TO C1 SPANISH</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">Acquire rich speaking agility, past subjunctive conjugation rules, and advanced business vocabularies aligned to Spanish DELE metrics.</p>
+          <a href="courses.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px; margin-top: auto; width: 100%;">Explore Spanish Track</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Student Success Journey -->
+  <section class="section" id="studentJourneySection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Before & After</span>
+        <h2 class="section-title">Scholars' <span>Success Journeys</span></h2>
+        <p class="section-subtitle">Real educational transformations that began with simple vocabulary checks and ended with foreign careers.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Journey 1 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card);">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+            <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Elena Rostova Avatar">
+            </div>
+            <div>
+              <h3 style="font-size: 16px; color: var(--text-primary);">Elena Rostova</h3>
+              <p style="font-size: 11px; color: var(--text-muted);">Goethe B2 cleared in 6 Months</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">BEFORE</span>
+              <strong style="color: var(--secondary); font-size: 14px;">Self-Study A1</strong>
+            </div>
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">AFTER</span>
+              <strong style="color: #10b981; font-size: 14px;">B2 Fluent (Berlin Developer)</strong>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">"Fluentra gave me the structured mock exams and constant speaking speed I needed to relocate to Berlin as a tech lead."</p>
+        </div>
+
+        <!-- Journey 2 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card);">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+            <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Haris Vance Avatar">
+            </div>
+            <div>
+              <h3 style="font-size: 16px; color: var(--text-primary);">Haris Vance</h3>
+              <p style="font-size: 11px; color: var(--text-muted);">IELTS 8.5 Cleared in 4 Months</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">BEFORE</span>
+              <strong style="color: var(--secondary); font-size: 14px;">IELTS Band 6.0</strong>
+            </div>
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">AFTER</span>
+              <strong style="color: #10b981; font-size: 14px;">Band 8.5 (Oxford Scholar)</strong>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">"The essay grading audits by ex-examiners were extremely rigorous and polished my writing style to Oxbridge levels."</p>
+        </div>
+
+        <!-- Journey 3 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card);">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+            <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Sarah Jenkins Avatar">
+            </div>
+            <div>
+              <h3 style="font-size: 16px; color: var(--text-primary);">Sarah Jenkins</h3>
+              <p style="font-size: 11px; color: var(--text-muted);">Japanese JLPT N3 cleared in 8 Months</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">BEFORE</span>
+              <strong style="color: var(--secondary); font-size: 14px;">Hiragana Only</strong>
+            </div>
+            <div style="background: var(--bg-app); padding: 10px; border-radius: var(--radius-sm); width: 48%; text-align: center;">
+              <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block;">AFTER</span>
+              <strong style="color: #10b981; font-size: 14px;">JLPT N3 (Tokyo Consultant)</strong>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">"Learning Kanji stroke rules and Keigo formal honorifics through Tokyo deans transformed my professional speech speed."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Global Learning Community -->
+  <section class="section section-bg-gradient" id="communitySection">
+    <div class="container grid-2">
+      <!-- Left Column Description -->
+      <div>
+        <span class="section-badge">Connected Cohorts</span>
+        <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--text-primary);">Global Bilingual <br>Learning <span>Community</span></h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">Learning is never a solitary journey. Integrate into active language speak-lounges connecting scholars in London, Tokyo, Berlin, and Seoul for double the retention.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px;">
+          <div style="background: var(--bg-card); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h3 style="font-size: 24px; color: var(--primary); margin-bottom: 5px;">24/7</h3>
+            <p style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Active Peer Lounges</p>
+          </div>
+          <div style="background: var(--bg-card); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h3 style="font-size: 24px; color: var(--primary); margin-bottom: 5px;">15,000+</h3>
+            <p style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Global Cohort Members</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column Visual Map Mockup -->
+      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 500px; height: 320px; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); padding: 30px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative;">
+          <!-- Simplified Map Sketch overlay -->
+          <div style="position: absolute; width: 100%; height: 100%; top:0; left:0; background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=600') center/cover; opacity: 0.15;"></div>
+          <!-- Glowing Map Nodes -->
+          <div style="position: absolute; top: 30%; left: 20%; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 15px var(--primary); z-index: 10;"></div>
+          <div style="position: absolute; top: 40%; left: 45%; width: 12px; height: 12px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 15px var(--secondary); z-index: 10;"></div>
+          <div style="position: absolute; top: 25%; left: 80%; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 15px var(--primary); z-index: 10;"></div>
+          <div style="position: absolute; top: 70%; left: 60%; width: 12px; height: 12px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 15px var(--secondary); z-index: 10;"></div>
+          <!-- Floating Dialogue Badge -->
+          <div style="position: absolute; bottom: 30px; right: 30px; background: var(--glass-bg); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); z-index: 20; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-comments" style="color: var(--primary);"></i>
+            <div>
+              <h5 style="font-size: 13px; color: var(--text-primary);">Dialogue Active</h5>
+              <span style="font-size: 11px; color: var(--text-muted);">48 Tutors online now</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Career Opportunities After Learning -->
+  <section class="section" id="careerOpportunitiesSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Career Scope</span>
+        <h2 class="section-title">International <span>Career Scopes</span></h2>
+        <p class="section-subtitle">Multilingualism is a high-stakes professional superpower. Explore fields seeking certified language skills.</p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Sector 1 -->
+        <div class="card-base text-center" style="padding: 30px;">
+          <div class="badge-icon purple" style="width: 50px; height: 50px; font-size: 20px; margin: 0 auto 20px auto; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-primary);">Tech Hub Migrations</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Relocate to Berlin, Paris, or Tokyo tech ecosystems demanding multilingual product engineers.</p>
+        </div>
+
+        <!-- Sector 2 -->
+        <div class="card-base text-center" style="padding: 30px;">
+          <div class="badge-icon orange" style="width: 50px; height: 50px; font-size: 20px; margin: 0 auto 20px auto; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-primary);">Diplomatic Corps</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Embassy liaison desks, translation bureaus, and cross-border research syndicates.</p>
+        </div>
+
+        <!-- Sector 3 -->
+        <div class="card-base text-center" style="padding: 30px;">
+          <div class="badge-icon purple" style="width: 50px; height: 50px; font-size: 20px; margin: 0 auto 20px auto; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-primary);">Aviation & Tourism</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Global fleet networks, luxury hospitality management, and international cruise services.</p>
+        </div>
+
+        <!-- Sector 4 -->
+        <div class="card-base text-center" style="padding: 30px;">
+          <div class="badge-icon orange" style="width: 50px; height: 50px; font-size: 20px; margin: 0 auto 20px auto; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-primary);">Corporate Finance</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">Global business mergers, international client banking, and commercial trade deals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Study Abroad Support -->
+  <section class="section section-bg-gradient" id="studyAbroadSection">
+    <div class="container grid-2 grid-2-reverse-mobile">
+      <!-- Left Column Graphic mockup -->
+      <div style="position: relative;">
+        <div style="width: 100%; max-width: 480px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 4px solid var(--bg-card);">
+          <img src="assets/img/study-abroad.png" alt="Students graduating abroad university" style="width: 100%; height: 350px; object-fit: cover;">
+        </div>
+      </div>
+
+      <!-- Right Column Description -->
+      <div style="padding-left: 20px;">
+        <span class="section-badge" style="background: var(--bg-card);">Scholastic Migration</span>
+        <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--text-primary);">Study Abroad <span>Support & Visa Prep</span></h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">Relocating to a new country for higher education can be daunting. Fluentra provides specialized guidance, ensuring your document validation and visa interviews proceed securely.</p>
+        
+        <ul style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px;">
+          <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary);">
+            <div style="width: 25px; height: 25px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;"><i class="fa-solid fa-check"></i></div>
+            Visa Interview Bootcamps led by former embassy staff
+          </li>
+          <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary);">
+            <div style="width: 25px; height: 25px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;"><i class="fa-solid fa-check"></i></div>
+            Certified document and university paperwork translation
+          </li>
+          <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary);">
+            <div style="width: 25px; height: 25px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;"><i class="fa-solid fa-check"></i></div>
+            Foreign accommodation search and local registration support
+          </li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Speak to Visa Advisors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Upcoming Workshops or Events -->
+  <section class="section" id="workshopsSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Join Live Sprints</span>
+        <h2 class="section-title">Upcoming <span>Workshops & Events</span></h2>
+        <p class="section-subtitle">Secure access to free live masterclasses and exam tips led by certified academy mentors.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Event 1 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="background: var(--primary-glow); color: var(--primary); display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; align-self: flex-start;">
+            <i class="fa-solid fa-calendar-check"></i> May 24, 2026
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-primary);">German Declensions Masterclass</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 25px;">Simplify adjective declensions case tables into 5 dynamic association formulas you can master in 60 minutes.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
+            <span style="font-size: 12px; color: #10b981; font-weight: 700;"><i class="fa-solid fa-circle" style="font-size: 8px; margin-right: 4px;"></i> FREE ACCESS</span>
+            <a href="contact.html" style="font-size: 13px; font-weight: 700; color: var(--primary);">Register Now <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="background: var(--secondary-glow); color: var(--secondary); display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; align-self: flex-start;">
+            <i class="fa-solid fa-calendar-check"></i> June 02, 2026
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-primary);">IELTS Task 2 Essay Formulas</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 25px;">Curate Band 8+ essay paragraph structures with real exam questions reviewed by former chief examiners.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
+            <span style="font-size: 12px; color: var(--primary); font-weight: 700;">PRO MEMBERS</span>
+            <a href="contact.html" style="font-size: 13px; font-weight: 700; color: var(--primary);">Register Now <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="card-base" style="padding: 35px; background: var(--bg-card); display: flex; flex-direction: column;">
+          <div style="background: var(--primary-glow); color: var(--primary); display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; align-self: flex-start;">
+            <i class="fa-solid fa-calendar-check"></i> June 15, 2026
+          </div>
+          <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-primary);">Japanese Particles Demystified</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 25px;">Master Japanese sentence structures, hiragana flow, and WA vs GA particles with Tokyo deans.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
+            <span style="font-size: 12px; color: #10b981; font-weight: 700;"><i class="fa-solid fa-circle" style="font-size: 8px; margin-right: 4px;"></i> FREE ACCESS</span>
+            <a href="contact.html" style="font-size: 13px; font-weight: 700; color: var(--primary);">Register Now <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter Form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email Input">
+            <button type="submit" aria-label="Submit Button"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search site modal">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search string">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

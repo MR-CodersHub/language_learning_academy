@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Language Programs | Fluentra Academy</title>
+  <meta name="description" content="Immerse in French, German, Spanish, Japanese, Korean, and IELTS programs. Monitor your path from A1 Beginner to C2 Professional with active progress indicators.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="languages.html" class="nav-link active">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Hero Breadcrumb Header -->
+  <section class="sub-hero" id="languagesSubHero">
+    <div class="container">
+      <h1>Academy Language Tracks</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--text-muted);"></i>
+        <span>Languages</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Tracks Grid Section -->
+  <section class="section" id="languageTracksSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Skill Progression</span>
+        <h2 class="section-title">Proficiency <span>Milestones & Syllabus</span></h2>
+        <p class="section-subtitle">Monitor the comprehensive skills and vocabulary targets defined across European CEFR (A1-C2) and Asian standard testing models.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- French Track -->
+        <div class="lang-track-card">
+          <div class="lang-track-header">
+            <div class="lang-flag" style="width: 60px; height: 60px;">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=150" alt="French Track Flag">
+            </div>
+            <div>
+              <h3>French Language Track</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase;">CEFR Syllabus A1-C1</p>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Prepare for DELF/DALF certifications. Focuses on immersive phonetics, advanced subjunctive conjugation, business phrasing, and literature study guides.</p>
+          
+          <div class="lang-levels">
+            <!-- Listening -->
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Immersive Listening Audits</span>
+                <span>85%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="85%"></div>
+              </div>
+            </div>
+            <!-- Speaking -->
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Spoken Fluency & Accent</span>
+                <span>80%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="80%"></div>
+              </div>
+            </div>
+            <!-- Grammar -->
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Academic Writing & Grammar</span>
+                <span>75%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="75%"></div>
+              </div>
+            </div>
+          </div>
+          <a href="courses.html" class="btn btn-secondary" style="width: 100%;">Explore French Courses</a>
+        </div>
+
+        <!-- German Track -->
+        <div class="lang-track-card">
+          <div class="lang-track-header">
+            <div class="lang-flag" style="width: 60px; height: 60px;">
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=150" alt="German Track Flag">
+            </div>
+            <div>
+              <h3>German Language Track</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase;">Goethe Syllabus A1-C2</p>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Perfect Goethe Zertifikat credentials. Master complex adjective endings, compound noun structures, sentence connectors, and technical speech.</p>
+          
+          <div class="lang-levels">
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Compound Nouns Grammar</span>
+                <span>95%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="95%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Verbal Sentence Structure</span>
+                <span>75%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="75%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Professional Reading</span>
+                <span>85%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+          <a href="courses.html" class="btn btn-secondary" style="width: 100%;">Explore German Courses</a>
+        </div>
+
+        <!-- Japanese Track -->
+        <div class="lang-track-card">
+          <div class="lang-track-header">
+            <div class="lang-flag" style="width: 60px; height: 60px;">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=150" alt="Japanese Track Flag">
+            </div>
+            <div>
+              <h3>Japanese Language Track</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase;">JLPT Syllabus N5-N1</p>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Accelerate your JLPT prep. Focuses on Kanji writing stroke rules, particles control (WA/GA/O/NI), polite language (Keigo), and reading comprehension.</p>
+          
+          <div class="lang-levels">
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Hiragana & Katakana Fluency</span>
+                <span>100%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="100%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Kanji Recognition & Stroke Rules</span>
+                <span>60%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="60%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Honorific Keigo & Speech</span>
+                <span>70%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="70%"></div>
+              </div>
+            </div>
+          </div>
+          <a href="courses.html" class="btn btn-secondary" style="width: 100%;">Explore Japanese Courses</a>
+        </div>
+
+        <!-- Spanish Track -->
+        <div class="lang-track-card">
+          <div class="lang-track-header">
+            <div class="lang-flag" style="width: 60px; height: 60px;">
+              <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=150" alt="Spanish Track Flag">
+            </div>
+            <div>
+              <h3>Spanish Language Track</h3>
+              <p style="font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase;">DELE Syllabus A1-C1</p>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Grasp DELE exam methodologies. Cover extensive vocabulary arrays, irregular past tenses (Preterite vs Imperfect), subjunctive filters, and verbal speed.</p>
+          
+          <div class="lang-levels">
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Vocabulary & Common Idioms</span>
+                <span>95%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="95%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Past Tenses Conjugation</span>
+                <span>80%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="80%"></div>
+              </div>
+            </div>
+            <div class="lang-level-item">
+              <div class="lang-level-info">
+                <span>Immersive Spoken Accent</span>
+                <span>85%</span>
+              </div>
+              <div class="lang-level-bar">
+                <div class="lang-level-fill" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+          <a href="courses.html" class="btn btn-secondary" style="width: 100%;">Explore Spanish Courses</a>
+        </div>
+      </div>
+      
+      <!-- Fluentra Interactive Verb Conjugator & Translation Drills Widget -->
+      <div class="interactive-widget-wrap" style="margin-top: 60px; padding: 40px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-align: center;">
+        <div class="section-title-wrap" style="margin-bottom: 30px;">
+          <span class="section-badge" style="background: var(--secondary-glow); color: var(--secondary); padding: 4px 12px; border-radius: 30px; font-weight:700; font-size:12px; display:inline-block;">Gamified Practice</span>
+          <h2 class="section-title" style="font-size: 28px; font-family:var(--font-heading); font-weight:800; margin-top:10px;">Interactive <span>Conjugation & Drill Game</span></h2>
+          <p class="section-subtitle" style="font-size: 14px; max-width:600px; margin: 10px auto 0 auto; color:var(--text-muted);">Conjugate verbs and translate quick conversational phrases to preview your real CEFR speaking milestones instantly.</p>
+        </div>
+        
+        <div class="drill-game-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; text-align: left; max-width: 900px; margin: 0 auto;">
+          <!-- Left side: Questions Panel -->
+          <div class="drill-question-card" style="background: var(--bg-app); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span id="drillLanguageBadge" style="padding: 4px 12px; border-radius: 30px; font-size: 12px; font-weight: 700; background: var(--primary-glow); color: var(--primary); text-transform: uppercase; font-family:var(--font-heading);">German Drill</span>
+              <span style="font-size: 13px; color: var(--text-muted);"><i class="fa-solid fa-circle-question"></i> Level: Beginner (A1)</span>
+            </div>
+            
+            <h3 id="drillQuestionText" style="font-size: 18px; font-weight: 700; line-height: 1.5; color: var(--text-primary); font-family:var(--font-heading);">Conjugate the verb <strong style="color: var(--primary);">"sein"</strong> (to be) for the pronoun <strong style="color: var(--primary);">"ihr"</strong> (you plural).</h3>
+            
+            <div class="drill-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <button class="btn drill-opt-btn" onclick="checkDrillAnswer(this, false)" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); border-radius: var(--radius-sm); font-weight:600; cursor:pointer; text-align:center; transition: all 0.2s;">bist</button>
+              <button class="btn drill-opt-btn" onclick="checkDrillAnswer(this, true)" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); border-radius: var(--radius-sm); font-weight:600; cursor:pointer; text-align:center; transition: all 0.2s;">seid</button>
+              <button class="btn drill-opt-btn" onclick="checkDrillAnswer(this, false)" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); border-radius: var(--radius-sm); font-weight:600; cursor:pointer; text-align:center; transition: all 0.2s;">sind</button>
+              <button class="btn drill-opt-btn" onclick="checkDrillAnswer(this, false)" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); border-radius: var(--radius-sm); font-weight:600; cursor:pointer; text-align:center; transition: all 0.2s;">sei</button>
+            </div>
+            
+            <button class="btn btn-primary" id="nextDrillBtn" onclick="nextDrillQuestion()" style="display: none; align-self: flex-end; padding: 10px 24px; border:none; cursor:pointer;">Next Drill <i class="fa-solid fa-chevron-right" style="margin-left: 5px;"></i></button>
+          </div>
+          
+          <!-- Right side: Score Metric -->
+          <div class="drill-metric-card" style="background: var(--bg-app); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px;">
+            <i class="fa-solid fa-gamepad" style="font-size: 40px; color: var(--primary);"></i>
+            <h4 style="font-size: 16px; font-weight: 700; color: var(--text-primary); font-family:var(--font-heading);">Drill Metrics</h4>
+            
+            <div style="width: 100%; border-top: 1px solid var(--border-color); padding-top: 15px;">
+              <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 4px;">CURRENT SCORE</span>
+              <span id="drillScoreVal" style="font-size: 32px; font-weight: 800; color: var(--primary);">0</span>
+            </div>
+            
+            <div style="width: 100%; border-top: 1px solid var(--border-color); padding-top: 15px;">
+              <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 4px;">CONJUGATOR STREAK</span>
+              <span id="drillStreakVal" style="font-weight: 700; color: #f59e0b;"><i class="fa-solid fa-fire"></i> 0 drills</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Reusable Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email Input">
+            <button type="submit" aria-label="Submit Button"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search Modal">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close modal"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search Field">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+  <!-- Page-specific script to trigger progress bars -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fillElements = document.querySelectorAll('.lang-level-fill');
+      
+      const animateProgress = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const fill = entry.target;
+            const targetWidth = fill.getAttribute('data-width');
+            fill.style.width = targetWidth;
+            observer.unobserve(fill);
+          }
+        });
+      };
+
+      const progressObserver = new IntersectionObserver(animateProgress, {
+        root: null,
+        threshold: 0.1
+      });
+
+      fillElements.forEach(fill => progressObserver.observe(fill));
+    });
+
+    // --- Fluentra Interactive Verb Conjugation & Translation Game Logic ---
+    let drillScore = 0;
+    let drillStreak = 0;
+    let currentDrillIndex = 0;
+    
+    const drillQuestions = [
+      {
+        language: 'German Drill',
+        level: 'Beginner (A1)',
+        question: 'Conjugate the verb <strong style="color: var(--primary);">"sein"</strong> (to be) for the pronoun <strong style="color: var(--primary);">"ihr"</strong> (you plural).',
+        options: [
+          { text: 'bist', correct: false },
+          { text: 'seid', correct: true },
+          { text: 'sind', correct: false },
+          { text: 'sei', correct: false }
+        ]
+      },
+      {
+        language: 'French Drill',
+        level: 'Intermediate (B1)',
+        question: 'Translate: <strong style="color: var(--primary);">"I would like to go."</strong>',
+        options: [
+          { text: 'Je veux aller', correct: false },
+          { text: 'Je voudrais aller', correct: true },
+          { text: 'Je vais aller', correct: false },
+          { text: 'J\'allais', correct: false }
+        ]
+      },
+      {
+        language: 'Spanish Drill',
+        level: 'Advanced (C1)',
+        question: 'Identify the correct subjunctive form for: <strong style="color: var(--primary);">"Espero que él ___ mañana"</strong> (venir).',
+        options: [
+          { text: 'viene', correct: false },
+          { text: 'venga', correct: true },
+          { text: 'vendrá', correct: false },
+          { text: 'viniera', correct: false }
+        ]
+      }
+    ];
+    
+    function checkDrillAnswer(button, isCorrect) {
+      // Disable options
+      const buttons = document.querySelectorAll('.drill-opt-btn');
+      buttons.forEach(btn => btn.disabled = true);
+      
+      if (isCorrect) {
+        button.style.background = '#10b981';
+        button.style.color = 'white';
+        button.style.borderColor = '#10b981';
+        drillScore += 10;
+        drillStreak++;
+        document.getElementById('drillScoreVal').textContent = drillScore;
+        document.getElementById('drillScoreVal').style.color = '#10b981';
+        document.getElementById('drillStreakVal').innerHTML = `<i class="fa-solid fa-fire"></i> ${drillStreak} drills`;
+      } else {
+        button.style.background = '#ef4444';
+        button.style.color = 'white';
+        button.style.borderColor = '#ef4444';
+        drillStreak = 0;
+        document.getElementById('drillScoreVal').style.color = '#ef4444';
+        document.getElementById('drillStreakVal').innerHTML = `<i class="fa-solid fa-fire"></i> 0 drills`;
+        
+        // highlight correct one
+        buttons.forEach((btn, idx) => {
+          if (drillQuestions[currentDrillIndex].options[idx].correct) {
+            btn.style.background = '#10b981';
+            btn.style.color = 'white';
+            btn.style.borderColor = '#10b981';
+          }
+        });
+      }
+      
+      document.getElementById('nextDrillBtn').style.display = 'inline-block';
+    }
+    
+    function nextDrillQuestion() {
+      currentDrillIndex = (currentDrillIndex + 1) % drillQuestions.length;
+      const drill = drillQuestions[currentDrillIndex];
+      
+      document.getElementById('drillLanguageBadge').textContent = drill.language;
+      document.getElementById('drillQuestionText').innerHTML = drill.question;
+      
+      const optionsGrid = document.querySelector('.drill-options-grid');
+      optionsGrid.innerHTML = '';
+      
+      drill.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'btn drill-opt-btn';
+        btn.textContent = opt.text;
+        btn.style.width = '100%';
+        btn.style.padding = '12px';
+        btn.style.border = '1px solid var(--border-color)';
+        btn.style.background = 'var(--bg-card)';
+        btn.style.color = 'var(--text-secondary)';
+        btn.style.borderRadius = 'var(--radius-sm)';
+        btn.style.fontWeight = '600';
+        btn.style.cursor = 'pointer';
+        btn.style.transition = 'all 0.2s';
+        
+        btn.onclick = () => checkDrillAnswer(btn, opt.correct);
+        optionsGrid.appendChild(btn);
+      });
+      
+      document.getElementById('nextDrillBtn').style.display = 'none';
+      document.getElementById('drillScoreVal').style.color = 'var(--primary)';
+    }
+  </script>
+</body>
+</html>

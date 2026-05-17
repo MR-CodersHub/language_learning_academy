@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Learning System — Fluentra Academy</title>
+  
+  <!-- FontAwesome Icon Suite -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* Dashboard specific layout override */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-app);
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    
+    /* Elegant Sidebar Style */
+    .dash-sidebar {
+      width: 280px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: fixed;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      transition: all var(--transition-normal);
+    }
+    
+    .dash-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .dash-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 4px 15px hsla(var(--primary-hsl), 0.3);
+    }
+    
+    .dash-logo-text {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .dash-user-profile {
+      padding: 15px;
+      background: var(--primary-glow);
+      border: 1px solid rgba(var(--primary-hsl), 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+    
+    .dash-user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .dash-user-info h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 2px;
+      color: var(--text-primary);
+      text-transform: capitalize;
+    }
+    
+    .dash-user-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    .dash-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .dash-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .dash-menu-item i {
+      font-size: 16px;
+      width: 20px;
+    }
+    
+    .dash-menu-item:hover, .dash-menu-item.active {
+      background: var(--primary-glow);
+      color: var(--primary);
+    }
+    
+    [data-theme="dark"] .dash-menu-item:hover, [data-theme="dark"] .dash-menu-item.active {
+      background: var(--secondary-glow);
+      color: var(--secondary);
+    }
+    
+    .dash-menu-item.logout-btn:hover {
+      background: rgba(239, 68, 68, 0.08);
+      color: #ef4444;
+    }
+    
+    /* Main Content Viewport */
+    .dash-content-area {
+      flex: 1;
+      margin-left: 280px;
+      padding: 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transition: all var(--transition-normal);
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Topbar Header */
+    .dash-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: nowrap;
+    }
+
+    /* Sidebar toggle — hidden on desktop, visible on mobile */
+    .dash-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .dash-menu-toggle:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    
+    .dash-page-title {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .dash-page-title h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .dash-page-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .dash-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .search-bar-dash {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-bar-dash input {
+      padding: 10px 16px 10px 40px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      outline: none;
+      width: 180px;
+      max-width: 100%;
+      transition: width var(--transition-normal);
+    }
+    
+    .search-bar-dash input:focus {
+      width: 220px;
+      border-color: var(--primary);
+    }
+    
+    .search-bar-dash i {
+      position: absolute;
+      left: 16px;
+      color: var(--text-muted);
+    }
+    
+    .notification-bell {
+      position: relative;
+    }
+    
+    .bell-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+    
+    /* Welcome Banner */
+    .welcome-banner {
+      background: var(--gradient-hero);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .welcome-banner::before {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: var(--primary-glow);
+      border-radius: 50%;
+      top: -50%;
+      right: -5%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .welcome-text h2 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+    
+    .welcome-text p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 600px;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    
+    .streak-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 15px 25px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: var(--shadow-sm);
+      z-index: 10;
+    }
+    
+    .streak-fire-icon {
+      font-size: 32px;
+      color: #f59e0b;
+      animation: floating 2.5s ease-in-out infinite;
+    }
+    
+    .streak-val h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    
+    .streak-val p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    /* Stats Grid */
+    .dash-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    .dash-stat-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all var(--transition-fast);
+    }
+    
+    .dash-stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+    
+    .stat-icon-dash {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    
+    .stat-icon-dash.purple {
+      background: rgba(139, 92, 246, 0.1);
+      color: rgb(139, 92, 246);
+    }
+    
+    .stat-icon-dash.orange {
+      background: rgba(249, 115, 22, 0.1);
+      color: rgb(249, 115, 22);
+    }
+    
+    .stat-icon-dash.emerald {
+      background: rgba(16, 185, 129, 0.1);
+      color: rgb(16, 185, 129);
+    }
+    
+    .stat-icon-dash.blue {
+      background: rgba(59, 130, 246, 0.1);
+      color: rgb(59, 130, 246);
+    }
+    
+    .stat-meta-dash h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    
+    .stat-meta-dash p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    /* Layout Cards Split */
+    .dash-layout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    .dash-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .dash-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .dash-card-header h3 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+    }
+    
+    /* Active Course Cards */
+    .active-course-row {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .course-prog-card {
+      background: var(--bg-app);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .course-prog-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .course-prog-title {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .course-prog-title h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      white-space: normal;
+      overflow: visible;
+    }
+    
+    .course-prog-title p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    .course-prog-pct {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .progress-bar-container {
+      height: 8px;
+      background: var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s ease-out;
+    }
+    
+    .progress-bar-fill.purple {
+      background: var(--gradient-primary);
+    }
+    
+    .progress-bar-fill.orange {
+      background: var(--gradient-secondary);
+    }
+    
+    /* Schedule Calendar List */
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 15px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-app);
+      border: 1px solid var(--border-color);
+      transition: all var(--transition-fast);
+    }
+    
+    .schedule-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .sched-date-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-glow);
+      border-radius: 8px;
+      color: var(--primary);
+      font-family: var(--font-heading);
+    }
+    
+    .sched-date-badge span:first-child {
+      font-size: 18px;
+      font-weight: 800;
+    }
+    
+    .sched-date-badge span:last-child {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .sched-details h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    
+    .sched-details p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    /* Dynamic Tabs Area */
+    .tab-content-pane {
+      display: none;
+      min-width: 0;
+    }
+    
+    .tab-content-pane.active {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      animation: fadeIn 0.4s ease;
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Certifications Grid */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 100%;
+    }
+
+    /* Mobile sidebar overlay backdrop */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 99;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .sidebar-overlay.active {
+      display: block;
+    }
+    
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+    }
+    
+    .cert-icon {
+      font-size: 48px;
+      color: #f59e0b;
+      margin-bottom: 8px;
+    }
+    
+    .cert-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 16px;
+    }
+    
+    .cert-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .btn-download-cert {
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      background: var(--primary-light);
+      color: var(--primary);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn-download-cert:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Responsive styling */
+    @media (max-width: 1200px) {
+      .dash-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dash-layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .dash-sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+      .dash-sidebar.active {
+        transform: translateX(0);
+      }
+      .dash-content-area {
+        margin-left: 0 !important;
+        padding: 20px;
+      }
+      /* Show hamburger toggle on tablet/mobile */
+      .dash-menu-toggle {
+        display: flex;
+      }
+      .welcome-banner {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .dash-stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-step {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .timeline-step::after {
+        display: none;
+      }
+    }
+
+    /* Enrollment Workflow UI */
+    .enrollment-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-wrap {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .timeline-step {
+      text-align: center;
+      position: relative;
+      flex: 1;
+      z-index: 1;
+    }
+    
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: 100%;
+      height: 3px;
+      background: var(--border-color);
+      z-index: -1;
+    }
+    
+    .timeline-step:last-child::after {
+      display: none;
+    }
+    
+    .timeline-step.completed::after {
+      background: var(--primary);
+    }
+    
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-body);
+      border: 3px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 16px;
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+    }
+    
+    .timeline-step.completed .timeline-icon {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+    
+    .timeline-step.active .timeline-icon {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-glow);
+    }
+    
+    .timeline-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      font-family: var(--font-heading);
+    }
+    
+    .timeline-step.completed .timeline-title, .timeline-step.active .timeline-title {
+      color: var(--text-primary);
+    }
+    
+    .enroll-details-wrap {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    .enroll-course-preview {
+      background: var(--bg-body);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .enroll-action-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all var(--transition-fast);
+    }
+    
+    @media (max-width: 992px) {
+      .enroll-details-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-page-title h1 {
+        font-size: 20px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+      
+      .dash-page-title p {
+        font-size: 12px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+    }
+
+    /* ── 480px: Small Mobile ── */
+    @media (max-width: 480px) {
+      .dash-content-area {
+        margin-left: 0 !important;
+        padding: 14px 12px;
+        gap: 18px;
+      }
+
+      /* Welcome banner compact */
+      .welcome-banner {
+        padding: 20px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .welcome-text h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .welcome-text p {
+        font-size: 13px;
+        max-width: 100%;
+      }
+
+      .streak-widget {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 16px;
+      }
+
+      /* Topbar: shrink title, hide search */
+      .dash-topbar {
+        gap: 10px;
+        padding-bottom: 12px;
+      }
+
+      .dash-page-title h1 {
+        font-size: 18px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .dash-page-title p {
+        font-size: 11px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      /* Hide search — too wide for small screens */
+      .search-bar-dash {
+        display: none;
+      }
+
+      .dash-topbar-actions {
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      /* Enrollment card */
+      .enrollment-card {
+        padding: 16px 12px;
+      }
+
+      .enrollment-card h2 {
+        font-size: 17px !important;
+      }
+
+      /* Timeline: vertical stack, row layout per step */
+      .timeline-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 20px;
+      }
+
+      .timeline-step {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        text-align: left;
+        margin-bottom: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+        flex: none;
+      }
+
+      .timeline-step:last-child {
+        border-bottom: none;
+      }
+
+      .timeline-step::after {
+        display: none;
+      }
+
+      .timeline-icon {
+        margin: 0;
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+      }
+
+      .timeline-title {
+        font-size: 13px;
+        line-height: 1.3;
+      }
+
+      /* Enrollment course preview */
+      .enroll-course-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px;
+      }
+
+      /* Stat grid: single column */
+      .dash-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Welcome banner */
+      .welcome-banner {
+        padding: 18px 14px;
+        gap: 12px;
+      }
+
+      .welcome-text h2 {
+        font-size: 18px;
+      }
+
+      /* Cards */
+      .dash-card {
+        padding: 14px;
+      }
+
+      /* Course progress cards */
+      .course-prog-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* ── 360px: Tiny screens ── */
+    @media (max-width: 380px) {
+      .dash-content-area {
+        margin-left: 0 !important;
+        padding: 10px 8px;
+      }
+
+      .dash-topbar {
+        gap: 8px;
+      }
+
+      .dash-page-title h1 {
+        font-size: 14px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .dash-page-title p {
+        font-size: 10px;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .dash-menu-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+      }
+
+      .dash-sidebar {
+        max-width: 280px;
+        width: 100%;
+      }
+
+      /* Welcome banner fully compact */
+      .welcome-banner {
+        padding: 16px 12px;
+      }
+
+      .welcome-text h2 {
+        font-size: 17px;
+      }
+
+      .welcome-text p {
+        font-size: 12px;
+      }
+
+      .streak-widget {
+        padding: 10px 12px;
+      }
+
+      .streak-val h3 {
+        font-size: 18px;
+      }
+
+      .streak-fire-icon {
+        font-size: 22px;
+      }
+
+      .enrollment-card {
+        padding: 12px 8px;
+      }
+
+      .enroll-action-btn {
+        font-size: 13px;
+        padding: 12px;
+      }
+
+      .dash-stat-item {
+        padding: 14px 10px;
+      }
+
+      .dash-stat-item h3 {
+        font-size: 20px;
+      }
+
+      .admin-card {
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Overlay Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a href="index.html" class="dash-logo-wrap">
+        <div class="dash-logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <span class="dash-logo-text" style="font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #7C3AED, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Fluentra</span>
+      </a>
+      
+      <!-- User profile summary -->
+      <div class="dash-user-profile">
+        <div class="dash-user-avatar" id="sidebarAvatar">J</div>
+        <div class="dash-user-info">
+          <h4 id="sidebarUsername">John Doe</h4>
+          <p>Student Account</p>
+        </div>
+      </div>
+      
+      <!-- Nav menus list -->
+      <nav class="dash-menu">
+        <button class="dash-menu-item active" data-tab="overview">
+          <i class="fa-solid fa-chart-pie"></i> Overview
+        </button>
+        <button class="dash-menu-item" data-tab="courses">
+          <i class="fa-solid fa-book-open"></i> My Courses
+        </button>
+        <button class="dash-menu-item" data-tab="homework">
+          <i class="fa-solid fa-file-signature"></i> Homework
+        </button>
+        <button class="dash-menu-item" data-tab="quizzes">
+          <i class="fa-solid fa-circle-question"></i> Quizzes
+        </button>
+        <button class="dash-menu-item" data-tab="certificates">
+          <i class="fa-solid fa-award"></i> Certificates
+        </button>
+        <button class="dash-menu-item" data-tab="schedule">
+          <i class="fa-solid fa-calendar-days"></i> Schedule
+        </button>
+        <button class="dash-menu-item" data-tab="settings">
+          <i class="fa-solid fa-sliders"></i> Settings
+        </button>
+        <button class="dash-menu-item" data-tab="enrollment" style="display: none;" id="enrollmentTabBtn">
+          <i class="fa-solid fa-spinner"></i> Enrollment
+        </button>
+        <div class="dropdown-divider" style="height: 1px; background: var(--border-color); margin: 15px 0;"></div>
+        <button class="dash-menu-item logout-btn" id="dashLogoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </nav>
+    </aside>
+    
+    <!-- Content Body Viewport -->
+    <main class="dash-content-area">
+      
+      <!-- Topbar Header -->
+      <header class="dash-topbar">
+        <!-- Hamburg Menu Trigger -->
+        <button class="dash-menu-toggle" id="sidebarToggleBtn" aria-label="Open sidebar menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <div class="dash-page-title">
+          <h1 id="tabHeaderTitle">Welcome Back</h1>
+          <p id="tabHeaderSub">Track your language learning benchmarks and streak</p>
+        </div>
+        
+        <div class="dash-topbar-actions">
+          <div class="search-bar-dash">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search lessons...">
+          </div>
+          
+          <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+            <div class="theme-toggle-ball"></div>
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          
+          <!-- Alerts Bell Trigger -->
+          <div class="btn-circle notification-bell" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-card); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary);">
+            <i class="fa-solid fa-bell"></i>
+            <span class="bell-badge"></span>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dynamic Pages Panes Container -->
+      
+      <!-- 0. ENROLLMENT PROCESS PAGE -->
+      <section class="tab-content-pane" id="pane-enrollment">
+        <div class="enrollment-card">
+          <h2 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 5px; color: var(--text-primary);">Course Registration</h2>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px;">Complete your enrollment to activate your learning portal instantly.</p>
+          
+          <div class="timeline-wrap">
+            <div class="timeline-step completed">
+              <div class="timeline-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">Course Selected</div>
+            </div>
+            <div class="timeline-step completed">
+              <div class="timeline-icon"><i class="fa-solid fa-user-check"></i></div>
+              <div class="timeline-title">Account Created</div>
+            </div>
+            <div class="timeline-step active" id="stepConfirm">
+              <div class="timeline-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <div class="timeline-title">Review & Confirm</div>
+            </div>
+            <div class="timeline-step" id="stepStart">
+              <div class="timeline-icon"><i class="fa-solid fa-rocket"></i></div>
+              <div class="timeline-title">Start Learning</div>
+            </div>
+          </div>
+
+          <div class="enroll-details-wrap">
+            <div class="enroll-course-preview">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background: var(--primary-glow); display: flex; align-items: center; justify-content: center; font-size: 30px; color: var(--primary);">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div>
+                <span style="font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase;">Fluentra Direct</span>
+                <h3 id="enrollmentCourseTitle" style="font-size: 18px; margin: 5px 0; color: var(--text-primary);">Loading Course...</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin: 0;"><i class="fa-solid fa-clock"></i> Immediate Access • Self-Paced • Lifetime</p>
+              </div>
+            </div>
+            
+            <div style="background: var(--bg-body); border-radius: var(--radius-md); padding: 20px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: center;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-secondary); font-weight: 600;">
+                <span>Total Tuition</span>
+                <span style="color: var(--text-primary);">Demo Free</span>
+              </div>
+              <button class="btn btn-primary enroll-action-btn" id="confirmEnrollmentBtn">
+                <span>Confirm & Activate</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 1. OVERVIEW PAGE -->
+      <section class="tab-content-pane active" id="pane-overview">
+        <!-- Welcome banner -->
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h2>Bonjour, <span id="bannerUsername" style="text-transform: capitalize;">John</span>! 🚀</h2>
+            <p>Your language calibration is exceptional! You have cleared 3 levels this month. Your next French active conversation slot starts in 2 hours.</p>
+          </div>
+          <div class="streak-widget">
+            <i class="fa-solid fa-fire streak-fire-icon"></i>
+            <div class="streak-val">
+              <h3>14 Days</h3>
+              <p>Active Learning Streak</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stats Widgets Cards -->
+        <div class="dash-stats-grid">
+          <div class="dash-stat-item">
+            <div class="stat-icon-dash purple">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="stat-meta-dash">
+              <h3>3</h3>
+              <p>Active Courses</p>
+            </div>
+          </div>
+          <div class="dash-stat-item">
+            <div class="stat-icon-dash orange">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="stat-meta-dash">
+              <h3>28</h3>
+              <p>Lessons Completed</p>
+            </div>
+          </div>
+          <div class="dash-stat-item">
+            <div class="stat-icon-dash emerald">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+            <div class="stat-meta-dash">
+              <h3>64%</h3>
+              <p>Overall Progress</p>
+            </div>
+          </div>
+          <div class="dash-stat-item">
+            <div class="stat-icon-dash blue">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <div class="stat-meta-dash">
+              <h3>18.5 Hrs</h3>
+              <p>Time Practiced</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Split Body Cards -->
+        <div class="dash-layout-grid">
+          <!-- Left: Active Courses Progress -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Course Progress Tracking</h3>
+              <a href="#" style="color: var(--primary); font-weight:700; font-size:13.5px; text-decoration:none;" onclick="switchTab('courses')">View All</a>
+            </div>
+            <div class="active-course-row">
+              
+              <!-- Card 1 -->
+              <div class="course-prog-card">
+                <div class="course-prog-meta">
+                  <div class="course-prog-title">
+                    <h4>Complete German Mastery: Zero to Fluent (A1-B2)</h4>
+                    <p>Unit 4: Nominativ, Akkusativ, and Dativ</p>
+                  </div>
+                  <span class="course-prog-pct">72%</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill purple" style="width: 72%;"></div>
+                </div>
+              </div>
+              
+              <!-- Card 2 -->
+              <div class="course-prog-card">
+                <div class="course-prog-meta">
+                  <div class="course-prog-title">
+                    <h4>Conversational Japanese for Beginners (N5-N4)</h4>
+                    <p>Unit 2: Katakana Character Mapping</p>
+                  </div>
+                  <span class="course-prog-pct">40%</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill orange" style="width: 40%;"></div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Right: Tutoring Schedule Calendar List -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Upcoming Live Classes</h3>
+              <a href="#" style="color: var(--primary); font-weight:700; font-size:13.5px; text-decoration:none;" onclick="switchTab('schedule')">Full Schedule</a>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="sched-date-badge">
+                  <span>17</span>
+                  <span>May</span>
+                </div>
+                <div class="sched-details">
+                  <h4>German Spoken Pod</h4>
+                  <p><i class="fa-regular fa-clock"></i> 4:00 PM (Dr. Kristin Becker)</p>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="sched-date-badge" style="background: rgba(249, 115, 22, 0.1); color: rgb(249, 115, 22);">
+                  <span>18</span>
+                  <span>May</span>
+                </div>
+                <div class="sched-details">
+                  <h4>IELTS Speaking Strategy</h4>
+                  <p><i class="fa-regular fa-clock"></i> 6:00 PM (Jonathan Miller)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 2. COURSES PAGE -->
+      <section class="tab-content-pane" id="pane-courses">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Enrolled Programs & Curricula</h3>
+          </div>
+          <div class="active-course-row">
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Complete German Mastery: Zero to Fluent (A1-B2)</h4>
+                  <p>In-progress • 35 lessons remaining</p>
+                </div>
+                <span class="course-prog-pct">72%</span>
+              </div>
+              <div class="progress-bar-container"><div class="progress-bar-fill purple" style="width: 72%;"></div></div>
+            </div>
+            
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Conversational Japanese for Beginners (N5-N4)</h4>
+                  <p>In-progress • 24 lessons remaining</p>
+                </div>
+                <span class="course-prog-pct">40%</span>
+              </div>
+              <div class="progress-bar-container"><div class="progress-bar-fill orange" style="width: 40%;"></div></div>
+            </div>
+
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Comprehensive Spanish Path: A1-C1</h4>
+                  <p>Enrolled • Ready to Start</p>
+                </div>
+                <span class="course-prog-pct">0%</span>
+              </div>
+              <div class="progress-bar-container"><div class="progress-bar-fill purple" style="width: 0%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 3. HOMEWORK PAGE -->
+      <section class="tab-content-pane" id="pane-homework">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Homework & Assignments</h3>
+            <span style="background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 4px 12px; border-radius: 30px; font-size: 12px; font-weight: 700;">2 Pending</span>
+          </div>
+          <div class="active-course-row">
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4 style="color:#ef4444;"><i class="fa-solid fa-circle-exclamation"></i> French Conjugation Practice</h4>
+                  <p>Due: May 18, 2026 • 10 questions</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Start Drill</a>
+              </div>
+            </div>
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4 style="color:#ef4444;"><i class="fa-solid fa-circle-exclamation"></i> German Prepositions Drill</h4>
+                  <p>Due: May 20, 2026 • Translate the paragraphs</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Start Drill</a>
+              </div>
+            </div>
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4 style="color:#10b981;"><i class="fa-solid fa-circle-check"></i> Katakana Recognition Test</h4>
+                  <p>Cleared • Graded: 90% (A)</p>
+                </div>
+                <span style="font-weight:700; color:#10b981;">Completed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 4. QUIZZES PAGE -->
+      <section class="tab-content-pane" id="pane-quizzes">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Interactive Quizzes Console</h3>
+          </div>
+          <div class="active-course-row">
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Vocab Speed Sprint 4 (German A2)</h4>
+                  <p>Time limit: 15 mins • 20 words</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Launch Quiz</a>
+              </div>
+            </div>
+            <div class="course-prog-card">
+              <div class="course-prog-meta">
+                <div class="course-prog-title">
+                  <h4>Japanese Verb Conjugations 2</h4>
+                  <p>Time limit: 10 mins • Hiragana format</p>
+                </div>
+                <a href="#" class="btn-download-cert" style="background:var(--primary); color:white;">Launch Quiz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 5. CERTIFICATES PAGE -->
+      <section class="tab-content-pane" id="pane-certificates">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Downloadable Language Certifications</h3>
+          </div>
+          <div class="certifications-grid">
+            <!-- Cert 1 -->
+            <div class="cert-card">
+              <i class="fa-solid fa-medal cert-icon"></i>
+              <h4>German N5 Competency</h4>
+              <p>Cleared: May 12, 2026 • Score: 98%</p>
+              <a href="#" class="btn-download-cert" onclick="alert('Downloading German N5 Certificate Mockup PDF!')"><i class="fa-solid fa-file-arrow-down"></i> Download PDF</a>
+            </div>
+            
+            <!-- Cert 2 -->
+            <div class="cert-card">
+              <i class="fa-solid fa-medal cert-icon" style="color: #cbd5e1;"></i>
+              <h4>Spanish A1 Basics</h4>
+              <p>Cleared: April 10, 2026 • Score: 94%</p>
+              <a href="#" class="btn-download-cert" onclick="alert('Downloading Spanish A1 Certificate Mockup PDF!')"><i class="fa-solid fa-file-arrow-down"></i> Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 6. SCHEDULE PAGE -->
+      <section class="tab-content-pane" id="pane-schedule">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Full Cohort Virtual Tutoring Schedule</h3>
+          </div>
+          <div class="schedule-list">
+            <div class="schedule-item">
+              <div class="sched-date-badge">
+                <span>17</span>
+                <span>May</span>
+              </div>
+              <div class="sched-details">
+                <h4>German Spoken Pod (A2 Level)</h4>
+                <p><i class="fa-regular fa-clock"></i> 4:00 PM - 5:00 PM • Dr. Kristin Becker</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="sched-date-badge" style="background: rgba(249, 115, 22, 0.1); color: rgb(249, 115, 22);">
+                <span>18</span>
+                <span>May</span>
+              </div>
+              <div class="sched-details">
+                <h4>IELTS Academic Speaking Sprint</h4>
+                <p><i class="fa-regular fa-clock"></i> 6:00 PM - 7:00 PM • Jonathan Miller</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="sched-date-badge">
+                <span>20</span>
+                <span>May</span>
+              </div>
+              <div class="sched-details">
+                <h4>Japanese N4 Kanji & Listening Drill</h4>
+                <p><i class="fa-regular fa-clock"></i> 10:00 AM - 11:30 AM • Yukiko Takahashi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 7. SETTINGS PAGE -->
+      <section class="tab-content-pane" id="pane-settings">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Student Profile & System Settings</h3>
+          </div>
+          <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;" onsubmit="alert('Profile Updated Successfully!'); return false;">
+            <div class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-weight: 700; font-size: 13px; display: block; margin-bottom: 8px;">Full Name</label>
+                <input type="text" value="John Doe" id="settingsNameInput" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-app); color: var(--text-primary); outline: none;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-weight: 700; font-size: 13px; display: block; margin-bottom: 8px;">Email Address</label>
+                <input type="email" value="john.doe@fluentra.com" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-app); color: var(--text-primary); outline: none;" disabled>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; border: none; padding: 12px 30px; cursor: pointer;">Save Settings</button>
+          </form>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+  
+  <script>
+    // Theme Engine Persistency
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const activeTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', activeTheme);
+    
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = 'light';
+        if (currentTheme === 'light') newTheme = 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+    
+    // Set Logged In user details
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || { name: 'John Doe', role: 'Active Scholar' };
+    document.getElementById('sidebarUsername').textContent = currentUser.name;
+    document.getElementById('bannerUsername').textContent = currentUser.name;
+    document.getElementById('sidebarAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
+    
+    // Tab System Control
+    const menuItems = document.querySelectorAll('.dash-menu-item[data-tab]');
+    const tabPanes = document.querySelectorAll('.tab-content-pane');
+    
+    const updateTabHeader = (tabId) => {
+      const titles = {
+        'overview': { title: 'Welcome Back', sub: 'Track your language learning benchmarks and streak' },
+        'courses': { title: 'My Active Courses', sub: 'Resume your lessons and modules' },
+        'homework': { title: 'Pending Assignments', sub: 'Submit your essay drafts and speaking audios' },
+        'quizzes': { title: 'Assessments Panel', sub: 'Review your upcoming exams and scores' },
+        'certificates': { title: 'My Certificates', sub: 'Download verified CEFR qualifications' },
+        'schedule': { title: 'Live Classes Schedule', sub: 'Join your upcoming tutor-led conversational cohorts' },
+        'settings': { title: 'Account Configuration', sub: 'Update your profile, billing, and notification preferences' },
+        'enrollment': { title: 'Checkout & Enrollment', sub: 'Finalize your enrollment details' }
+      };
+      
+      if (titles[tabId]) {
+        document.getElementById('tabHeaderTitle').textContent = titles[tabId].title;
+        document.getElementById('tabHeaderSub').textContent = titles[tabId].sub;
+      }
+    };
+    
+    const switchTab = (tabId) => {
+      // Deactivate items
+      menuItems.forEach(item => {
+        if (item.getAttribute('data-tab') === tabId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+      
+      // Deactivate panes
+      tabPanes.forEach(pane => {
+        if (pane.id === `pane-${tabId}`) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+      
+      // Update Title & Header text based on tab selected
+      updateTabHeader(tabId);
+    };
+    
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const tabId = item.getAttribute('data-tab');
+        switchTab(tabId);
+      });
+    });
+    
+    // Mobile responsive Sidebar Drawer
+    const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+    const dashSidebar = document.getElementById('dashSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    const openSidebar = () => {
+      dashSidebar.classList.add('active');
+      if (sidebarOverlay) sidebarOverlay.classList.add('active');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeSidebar = () => {
+      dashSidebar.classList.remove('active');
+      if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'false');
+    };
+    
+    if (sidebarToggleBtn && dashSidebar) {
+      // Toggle on hamburger click
+      sidebarToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dashSidebar.classList.contains('active') ? closeSidebar() : openSidebar();
+      });
+
+      // Auto-close sidebar when any menu item is clicked on mobile
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          if (window.innerWidth <= 992) {
+            setTimeout(closeSidebar, 120); // slight delay so tab animates first
+          }
+        });
+      });
+
+      // Close on outside tap (backdrop overlay or document click)
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+      }
+
+      document.addEventListener('click', (e) => {
+        if (
+          window.innerWidth <= 992 &&
+          dashSidebar.classList.contains('active') &&
+          !dashSidebar.contains(e.target) &&
+          !sidebarToggleBtn.contains(e.target) &&
+          (!sidebarOverlay || !sidebarOverlay.contains(e.target))
+        ) {
+          closeSidebar();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSidebar();
+      });
+    }
+    
+    // Logout Action
+    document.getElementById('dashLogoutBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+
+    // --- Dynamic Course Enrollment Render Engine ---
+    const renderEnrolledCourses = () => {
+      const enrolledCourses = JSON.parse(localStorage.getItem('fluentra_enrolled')) || [];
+      // Only overwrite static content if the user actually enrolled in courses via the frontend
+      if (enrolledCourses.length === 0) return; 
+
+      const overviewRow = document.querySelector('#pane-overview .active-course-row');
+      const coursesRow = document.querySelector('#pane-courses .active-course-row');
+
+      const buildCardHTML = (course) => {
+        return `
+          <div class="course-prog-card" style="animation: fadeIn 0.6s ease; border-left: 4px solid var(--primary);">
+            <div class="course-prog-meta">
+              <div class="course-prog-title">
+                <h4>${course.title}</h4>
+                <p>${course.info}</p>
+              </div>
+              <span class="course-prog-pct">${course.progress}%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill ${course.color || 'purple'}" style="width: ${course.progress}%;"></div>
+            </div>
+          </div>
+        `;
+      };
+
+      if (overviewRow) {
+        overviewRow.innerHTML = enrolledCourses.slice(0, 2).map(buildCardHTML).join('');
+      }
+      
+      if (coursesRow) {
+        coursesRow.innerHTML = enrolledCourses.map(buildCardHTML).join('');
+      }
+      
+      // Update the "Active Courses" top stat tracker
+      const statItems = document.querySelectorAll('.dash-stat-item h3');
+      if (statItems.length > 0) statItems[0].textContent = enrolledCourses.length;
+    };
+
+    // Initialize Enrollment Engine Logic
+    const initEnrollmentEngine = () => {
+      const pendingStr = localStorage.getItem('fluentra_pending_course');
+      const enrollmentTabBtn = document.getElementById('enrollmentTabBtn');
+      const confirmBtn = document.getElementById('confirmEnrollmentBtn');
+      
+      if (pendingStr) {
+        const courseData = JSON.parse(pendingStr);
+        document.getElementById('enrollmentCourseTitle').textContent = courseData.title || 'Selected Academy Course';
+        if (enrollmentTabBtn) enrollmentTabBtn.style.display = 'flex';
+        
+        // Auto-switch to enrollment tab if specifically requested
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('tab') === 'enrollment') {
+          switchTab('enrollment');
+        }
+        
+        // Activation Workflow
+        if (confirmBtn) {
+          confirmBtn.addEventListener('click', () => {
+            // Animate Button
+            confirmBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Activating...';
+            confirmBtn.disabled = true;
+            
+            setTimeout(() => {
+              // Move from Pending to Enrolled
+              let enrolledCourses = JSON.parse(localStorage.getItem('fluentra_enrolled')) || [];
+              const isAlreadyEnrolled = enrolledCourses.some(c => c.title === courseData.title);
+              if (!isAlreadyEnrolled) {
+                enrolledCourses.unshift(courseData);
+                localStorage.setItem('fluentra_enrolled', JSON.stringify(enrolledCourses));
+              }
+              
+              // Clear pending
+              localStorage.removeItem('fluentra_pending_course');
+              
+              // Update Timeline visually
+              document.getElementById('stepConfirm').classList.replace('active', 'completed');
+              document.getElementById('stepStart').classList.add('completed');
+              
+              // Show Success state on button
+              confirmBtn.innerHTML = '<i class="fa-solid fa-check"></i> Enrollment Successful!';
+              confirmBtn.style.background = '#10b981'; // Success Green
+              
+              setTimeout(() => {
+                // Render newly enrolled items
+                renderEnrolledCourses();
+                // Redirect to My Courses visually
+                switchTab('courses');
+                // Hide enrollment tab completely
+                if (enrollmentTabBtn) enrollmentTabBtn.style.display = 'none';
+              }, 1500);
+            }, 1200);
+          });
+        }
+      } else {
+        // Handle URL Tab param for normal navigation
+        const urlParams = new URLSearchParams(window.location.search);
+        const requestedTab = urlParams.get('tab');
+        if (requestedTab && requestedTab !== 'enrollment') {
+          switchTab(requestedTab);
+        }
+      }
+    };
+
+    renderEnrolledCourses();
+    initEnrollmentEngine();
+    
+  </script>
+</body>
+</html>

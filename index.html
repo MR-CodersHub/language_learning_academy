@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluentra Academy | Learn Foreign Languages Easily</title>
+  <meta name="description"
+    content="Master English, German, French, Japanese, Korean, Spanish, and IELTS easily with modern classes, certified mentors, and personalized progress tracks.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon"
+          style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+        </div>
+        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span
+            style="color: #3B82F6;">tra</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
+          <div class="theme-toggle-ball"></div>
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <!-- User Account Icon -->
+        <div class="user-account-widget" id="headerUserWidget">
+          <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu"
+            aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburgerMenuBtn" title="Toggle Mobile Navigation" role="button"
+          aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="homeHeroSection">
+    <div class="container grid-2">
+      <!-- Left Column Content -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-sparkles"></i>
+          <span>Global Language Excellence Academy</span>
+        </div>
+        <h1 class="hero-title">Learn Foreign <br>Languages <span>Easily</span></h1>
+        <p class="hero-desc">Unlock new international career scopes, scholastic opportunities, and seamless travel
+          journeys with premium linguistic coaching. Join 15,000+ active scholars master English, German, French,
+          Japanese, and more!</p>
+
+        <div class="hero-actions">
+          <a href="courses.html" class="btn btn-primary">
+            <span>Explore Courses</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="contact.html" class="btn btn-secondary">
+            <span>Start Free Lesson</span>
+            <i class="fa-solid fa-circle-play" style="color: var(--primary);"></i>
+          </a>
+        </div>
+
+        <!-- Quick stats in Hero -->
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <h3>50+</h3>
+            <p>Certified Native Mentors</p>
+          </div>
+          <div class="hero-stat-item" style="border-left: 2px solid var(--border-color); padding-left: 30px;">
+            <h3>99%</h3>
+            <p>Goal Accomplishment Rate</p>
+          </div>
+          <div class="hero-stat-item" style="border-left: 2px solid var(--border-color); padding-left: 30px;">
+            <h3>15k+</h3>
+            <p>Satisfied Global Scholars</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column Visuals -->
+      <div class="hero-image-wrap">
+        <!-- Floating badge 1 -->
+        <div class="hero-badge-float hero-badge-1">
+          <div class="badge-icon purple">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <div class="badge-info">
+            <h4>No. 1 EdTech 2026</h4>
+            <p>Global Academy Choice</p>
+          </div>
+        </div>
+
+        <div class="hero-image-container">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
+            alt="Students studying foreign languages at Academy">
+        </div>
+
+        <!-- Floating badge 2 -->
+        <div class="hero-badge-float hero-badge-2">
+          <div class="badge-icon orange">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="badge-info">
+            <h4>Goethe & IELTS Prep</h4>
+            <p>100% Guaranteed Success</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands rolling trust banner -->
+  <section class="brands" id="brandRollSection">
+    <div class="container">
+      <div class="brands-wrapper">
+        <div class="brand-item"><i class="fa-brands fa-google"></i> Google Partner</div>
+        <div class="brand-item"><i class="fa-brands fa-microsoft"></i> Microsoft Ed</div>
+        <div class="brand-item"><i class="fa-brands fa-amazon"></i> AWS Scholar</div>
+        <div class="brand-item"><i class="fa-brands fa-stripe"></i> Stripe Global</div>
+        <div class="brand-item"><i class="fa-brands fa-airbnb"></i> Airbnb Travel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Categories Section -->
+  <section class="section" id="languageCategoriesSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Choose Your Goal</span>
+        <h2 class="section-title">Explore Featured <span>Languages</span></h2>
+        <p class="section-subtitle">Unlock customized study curriculum nodes and immersive speaking exercises developed
+          by leading global linguists.</p>
+      </div>
+
+      <div class="lang-categories">
+        <!-- French -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=150"
+                alt="France Flag">
+            </div>
+            <span class="lang-students-badge">3.2k Learners</span>
+          </div>
+          <h3>French Program</h3>
+          <p>Master conversational elegance, academic syntax structures, and corporate negotiation levels.</p>
+          <div class="lang-cat-footer">
+            <span>Learn French Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- German -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=150"
+                alt="Germany Flag">
+            </div>
+            <span class="lang-students-badge">4.5k Learners</span>
+          </div>
+          <h3>German Program</h3>
+          <p>Perfect training for Goethe-Zertifikat exams, career expansion modules, and technical grammar.</p>
+          <div class="lang-cat-footer">
+            <span>Learn German Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Japanese -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=150"
+                alt="Japan Flag">
+            </div>
+            <span class="lang-students-badge">2.8k Learners</span>
+          </div>
+          <h3>Japanese Program</h3>
+          <p>Engage in Kanji writing, particles control, and complete JLPT N5 to N1 preparation systems.</p>
+          <div class="lang-cat-footer">
+            <span>Learn Japanese Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Spanish -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=150"
+                alt="Spain Flag">
+            </div>
+            <span class="lang-students-badge">3.9k Learners</span>
+          </div>
+          <h3>Spanish Program</h3>
+          <p>Immerse in vibrant vocabulary, DELE exam preparation, and perfect spoken accents.</p>
+          <div class="lang-cat-footer">
+            <span>Learn Spanish Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Korean -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&q=80&w=150"
+                alt="Korea Flag">
+            </div>
+            <span class="lang-students-badge">1.9k Learners</span>
+          </div>
+          <h3>Korean Program</h3>
+          <p>Grasp Hangul fundamentals, informal expressions, and TOPIK testing curriculum.</p>
+          <div class="lang-cat-footer">
+            <span>Learn Korean Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- IELTS Academic -->
+        <div class="lang-cat-card" onclick="window.location.href='languages.html'">
+          <div class="lang-cat-header">
+            <div class="lang-flag">
+              <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=150"
+                alt="IELTS UK Flag">
+            </div>
+            <span class="lang-students-badge">5.2k Learners</span>
+          </div>
+          <h3>IELTS Preparation</h3>
+          <p>Target a guaranteed 8+ Band Score with listening, academic essay writing, and verbal tests.</p>
+          <div class="lang-cat-footer">
+            <span>Target IELTS Track</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses Section -->
+  <section class="section section-bg-gradient" id="homeFeaturedCoursesSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Mastery Tracks</span>
+        <h2 class="section-title">Explore Featured <span>Classes</span></h2>
+        <p class="section-subtitle">Premium curricula featuring video modules, active chat channels, and interactive
+          native accent testing.</p>
+      </div>
+
+      <div class="grid-3" id="homeFeaturedGrid">
+        <!-- German Card -->
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&q=80&w=800"
+              alt="German Course">
+            <span class="course-badge">Popular</span>
+            <div class="course-save" onclick="this.classList.toggle('saved');"><i class="fa-regular fa-bookmark"></i>
+            </div>
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span style="color: var(--primary); font-weight: 600; font-size: 12px;">German</span>
+              <div class="course-rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.9 (1,420)</span>
+              </div>
+            </div>
+            <h3 class="course-title"><a href="courses.html">Complete German Mastery: Zero to Fluent (A1-B2)</a></h3>
+            <div class="course-instructor">
+              <div class="course-inst-avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                  alt="Dr. Becker">
+              </div>
+              <div class="course-inst-info">
+                <h4>Dr. Kristin Becker</h4>
+                <p>Former Goethe Institute Head</p>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price-wrap">
+                <span class="course-price-orig">$129</span>
+                <span class="course-price-actual">$79</span>
+              </div>
+              <a href="contact.html" class="course-enroll">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- IELTS Card -->
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"
+              alt="IELTS Course">
+            <span class="course-badge">Best Seller</span>
+            <div class="course-save" onclick="this.classList.toggle('saved');"><i class="fa-regular fa-bookmark"></i>
+            </div>
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span style="color: var(--primary); font-weight: 600; font-size: 12px;">IELTS</span>
+              <div class="course-rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8 (3,280)</span>
+              </div>
+            </div>
+            <h3 class="course-title"><a href="courses.html">IELTS Academic Exam Preparation Elite Masterclass</a></h3>
+            <div class="course-instructor">
+              <div class="course-inst-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+                  alt="Jonathan Miller">
+              </div>
+              <div class="course-inst-info">
+                <h4>Jonathan Miller</h4>
+                <p>Ex-IELTS Examiner (15+ Years)</p>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price-wrap">
+                <span class="course-price-orig">$149</span>
+                <span class="course-price-actual">$99</span>
+              </div>
+              <a href="contact.html" class="course-enroll">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Japanese Card -->
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800"
+              alt="Japanese Course">
+            <span class="course-badge">Trending</span>
+            <div class="course-save" onclick="this.classList.toggle('saved');"><i class="fa-regular fa-bookmark"></i>
+            </div>
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span style="color: var(--primary); font-weight: 600; font-size: 12px;">Japanese</span>
+              <div class="course-rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.9 (980)</span>
+              </div>
+            </div>
+            <h3 class="course-title"><a href="courses.html">Conversational Japanese for Beginners (N5-N4)</a></h3>
+            <div class="course-instructor">
+              <div class="course-inst-avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
+                  alt="Yukiko Takahashi">
+              </div>
+              <div class="course-inst-info">
+                <h4>Yukiko Takahashi</h4>
+                <p>Saitama University Linguist</p>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="course-price-wrap">
+                <span class="course-price-orig">$119</span>
+                <span class="course-price-actual">$69</span>
+              </div>
+              <a href="contact.html" class="course-enroll">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 50px;">
+        <a href="courses.html" class="btn btn-primary">
+          <span>View All Courses</span>
+          <i class="fa-solid fa-grip"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Statistics Section -->
+  <section class="stats" id="successStatsSection">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h2 class="count-number" data-target="99" data-suffix="%">0%</h2>
+          <p>Goal Success Rate</p>
+        </div>
+        <div class="stat-card">
+          <h2 class="count-number" data-target="15" data-suffix="k+">0k+</h2>
+          <p>Active Students</p>
+        </div>
+        <div class="stat-card">
+          <h2 class="count-number" data-target="120" data-suffix="+">0+</h2>
+          <p>Native Instructors</p>
+        </div>
+        <div class="stat-card">
+          <h2 class="count-number" data-target="50" data-suffix="+">0+</h2>
+          <p>Global Universities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonialsSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Success Stories</span>
+        <h2 class="section-title">What Our <span>Scholars Say</span></h2>
+        <p class="section-subtitle">Real feedback from global students that redefined their professional and academic
+          career journeys.</p>
+      </div>
+
+      <div class="testimonial-container">
+        <div class="testimonial-slider">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                Fluentra revolutionized my Goethe exam journey! The intensive conversational sprints and native mentors
+                supported me to clear Goethe B2 with a top-tier score within six months.
+              </div>
+              <div class="testimonial-user">
+                <div class="testimonial-avatar">
+                  <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
+                    alt="Elena Rostova">
+                </div>
+                <h3>Elena Rostova</h3>
+                <p>Software Engineer in Berlin (Cleared Goethe B2)</p>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                I needed a Band 8 score in IELTS Academic to apply for Oxford. The specialized essays reviews and
+                rigorous speaking schedules on Fluentra gave me exactly a Band 8.5!
+              </div>
+              <div class="testimonial-user">
+                <div class="testimonial-avatar">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+                    alt="Haris Vance">
+                </div>
+                <h3>Haris Vance</h3>
+                <p>Oxford Scholar (Achieved IELTS 8.5)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="testimonial-controls">
+          <button class="btn-circle testimonial-prev" aria-label="Previous Slide"><i
+              class="fa-solid fa-chevron-left"></i></button>
+          <button class="btn-circle testimonial-next" aria-label="Next Slide"><i
+              class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor Showcase -->
+  <section class="section section-bg-gradient" id="teachersShowcaseSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Master Educators</span>
+        <h2 class="section-title">Our Native <span>Academy Instructors</span></h2>
+        <p class="section-subtitle">Learn from accredited linguists, ex-Goethe mentors, and IELTS examiners who
+          understand step-by-step guidance.</p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Tutor 1 -->
+        <div class="teacher-card">
+          <div class="teacher-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=350"
+              alt="Yukiko Takahashi">
+            <div class="teacher-socials">
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Yukiko Takahashi</h3>
+            <span class="teacher-role">Japanese Linguist Specialist</span>
+            <p class="teacher-bio">Over 12 years of helping students master complex Kanji structures and fluent
+              conversational Japanese.</p>
+            <div class="teacher-rating">
+              <i class="fa-solid fa-star"></i>
+              <span>4.9 <span>(240 Reviews)</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tutor 2 -->
+        <div class="teacher-card">
+          <div class="teacher-img-wrap">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=350"
+              alt="Jonathan Miller">
+            <div class="teacher-socials">
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Jonathan Miller</h3>
+            <span class="teacher-role">Ex-IELTS Chief Examiner</span>
+            <p class="teacher-bio">Helped over 18,000+ candidates secure Band 8+ grades with structured essay audits and
+              verbal drills.</p>
+            <div class="teacher-rating">
+              <i class="fa-solid fa-star"></i>
+              <span>4.8 <span>(410 Reviews)</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tutor 3 -->
+        <div class="teacher-card">
+          <div class="teacher-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=350"
+              alt="Dr. Kristin Becker">
+            <div class="teacher-socials">
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Dr. Kristin Becker</h3>
+            <span class="teacher-role">German Academy Director</span>
+            <p class="teacher-bio">Specialist in Goethe Zertifikat preparation. Focuses on immersive spoken fluency and
+              technical grammar levels.</p>
+            <div class="teacher-rating">
+              <i class="fa-solid fa-star"></i>
+              <span>4.9 <span>(310 Reviews)</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tutor 4 -->
+        <div class="teacher-card">
+          <div class="teacher-img-wrap">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=350"
+              alt="Sarah Jenkins">
+            <div class="teacher-socials">
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="teacher-socials-btn"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Sarah Jenkins</h3>
+            <span class="teacher-role">Business English Coach</span>
+            <p class="teacher-bio">Focuses on international standard public speaking, high-stakes presentations, and
+              corporate idioms.</p>
+            <div class="teacher-rating">
+              <i class="fa-solid fa-star"></i>
+              <span>4.9 <span>(180 Reviews)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricingPlansSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Fair Pricing</span>
+        <h2 class="section-title">Choose Your <span>Tuition Plan</span></h2>
+        <p class="section-subtitle">Affordable, transparent premium membership models. Upgrade, downgrade, or cancel any
+          time.</p>
+      </div>
+
+      <!-- Pricing Toggle switch -->
+      <div class="pricing-toggle-wrap">
+        <span class="pricing-label">Monthly Billing</span>
+        <div class="pricing-switch-bg" id="pricingToggleSwitch" role="button" aria-label="Toggle annual pricing">
+          <div class="pricing-switch-ball"></div>
+        </div>
+        <span class="pricing-label">Yearly Billing</span>
+        <span class="pricing-badge-save">Save 20%</span>
+      </div>
+
+      <div class="grid-3">
+        <!-- Standard -->
+        <div class="pricing-card">
+          <span class="pricing-tier">Starter Track</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Perfect for language enthusiasts
+            exploring basic vocabulary.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="29" data-yearly="23">29</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> 3 Languages Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> 10 Hours of Live Lectures</li>
+            <li><i class="fa-solid fa-circle-check"></i> Standard Writing Quizzes</li>
+            <li><i class="fa-solid fa-xmark"></i> Mock Testing Audits</li>
+            <li><i class="fa-solid fa-xmark"></i> Native Mentor Support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card premium">
+          <span class="pricing-tier" style="color: var(--secondary);">Fluency Pro</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Ideal for active scholars targeting
+            career transitions.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="59" data-yearly="47">59</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> All 9+ Languages Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Live Lectures</li>
+            <li><i class="fa-solid fa-circle-check"></i> Advanced Writing Feedback</li>
+            <li><i class="fa-solid fa-circle-check"></i> Goethe & IELTS Mock Tests</li>
+            <li><i class="fa-solid fa-circle-check"></i> Active Speaking Chatrooms</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+
+        <!-- Elite Enterprise -->
+        <div class="pricing-card">
+          <span class="pricing-tier">Elite Academy</span>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Personal 1-on-1 intensive
+            preparation with executive coaches.</p>
+          <div class="pricing-price">
+            <h2>$<span class="price-val" data-monthly="99" data-yearly="79">99</span></h2>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> Custom Curriculum Path</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1-on-1 Weekly Tutoring</li>
+            <li><i class="fa-solid fa-circle-check"></i> Native Accent Testing</li>
+            <li><i class="fa-solid fa-circle-check"></i> 100% Goethe Pass Guarantee</li>
+            <li><i class="fa-solid fa-circle-check"></i> Elite Alumni Network</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile App Section -->
+  <section class="section section-bg-gradient" id="mobileAppSection">
+    <div class="container app-wrapper grid-2">
+      <!-- App Left Content -->
+      <div class="app-content">
+        <span class="section-badge" style="background: var(--bg-card);">Learn Anywhere</span>
+        <h2>Download the <span>Fluentra Mobile App</span></h2>
+        <p>Take your language journey everywhere you go. Listen to certified native podcasts, review vocabulary cards on
+          the train, and connect with conversational peers directly from your iOS or Android device.</p>
+
+        <div class="app-buttons">
+          <!-- App Store -->
+          <div class="app-btn">
+            <i class="fa-brands fa-apple"></i>
+            <div class="app-btn-info">
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </div>
+          </div>
+          <!-- Google Play -->
+          <div class="app-btn">
+            <i class="fa-brands fa-google-play"></i>
+            <div class="app-btn-info">
+              <span>Get it on</span>
+              <strong>Google Play</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- App Right Visual Mockup -->
+      <div class="app-image">
+        <div class="app-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600"
+            alt="Fluentra Language App Interface Mockup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academy Blog Preview -->
+  <section class="section" id="blogPreviewSection">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Academy Insights</span>
+        <h2 class="section-title">Latest Articles & <span>Tips</span></h2>
+        <p class="section-subtitle">Expert tips and methods to accelerate your fluency, optimize vocabulary retention,
+          and handle certifications.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Post 1 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=800"
+              alt="Grammar Tip">
+            <span class="blog-category">Study Tips</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> May 14, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 Min Read</span>
+            </div>
+            <h3><a href="blog-german-declensions.html">How to Master German Declensions: 5 Simple Rules</a></h3>
+            <p class="blog-desc">German adjective endings can look overwhelming at first glance. We simplify the case
+              tables into actionable structures you can memorize in hours.</p>
+            <a href="blog-german-declensions.html" class="blog-read-more">
+              <span>Read Full Article</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"
+              alt="IELTS Essay">
+            <span class="blog-category">IELTS Preparation</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> May 08, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 8 Min Read</span>
+            </div>
+            <h3><a href="blog-ielts-writing.html">Cracking IELTS Academic Writing Task 2 for Band 8+</a></h3>
+            <p class="blog-desc">Explore the exact structures examiners look for: coherent grammar structures, complex
+              vocabulary ranges, and perfect body paragraphing styles.</p>
+            <a href="blog-ielts-writing.html" class="blog-read-more">
+              <span>Read Full Article</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800"
+              alt="Japanese Particles">
+            <span class="blog-category">Japanese Grammar</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> April 29, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 Min Read</span>
+            </div>
+            <h3><a href="blog-japanese-particles.html">Understanding the Difference Between WA (は) and GA (が)</a></h3>
+            <p class="blog-desc">It is the most common pitfall for beginner Japanese learners. We demystify the
+              topic-marker vs subject-marker particle rules once and for all.</p>
+            <a href="blog-japanese-particles.html" class="blog-read-more">
+              <span>Read Full Article</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup & Professional Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- About Column -->
+        <div class="footer-about">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon"
+              style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); color: white; font-size: 20px;"></i>
+            </div>
+            <div class="logo-text" style="color: white; font-weight: 800; letter-spacing: -0.5px;">Fluen<span
+                style="color: #3B82F6;">tra</span></div>
+          </a>
+          <p>Fluentra is a world-class Language Learning Academy offering premium training and certification tracks. We
+            combine digital ease with expert teaching pedagogy.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Follow us on Facebook"><i
+                class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Follow us on Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Follow us on Instagram"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Follow us on LinkedIn"><i
+                class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Academy</a></li>
+            <li><a href="courses.html">Our Courses</a></li>
+            <li><a href="languages.html">Language Tracks</a></li>
+            <li><a href="teachers.html">Certified Tutors</a></li>
+            <li><a href="pricing.html">Tuition Plans</a></li>
+          </ul>
+        </div>
+
+        <!-- Extra Pages -->
+        <div>
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Academy Blog</a></li>
+            <li><a href="testimonials.html">Student Stories</a></li>
+            <li><a href="faq.html">FAQ Accordion</a></li>
+            <li><a href="contact.html">Support Office</a></li>
+            <li><a href="#">Privacy Agreement</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Signup Column -->
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter to receive free conversational tips, grammar cheat sheets, and course discount
+            coupons.</p>
+          <form class="newsletter-form" aria-label="Newsletter Subscription Form">
+            <input type="email" placeholder="Your Email Address" required aria-label="Email address">
+            <button type="submit" aria-label="Submit subscription"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fluentra Academy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Search Modal -->
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search Academy Modal">
+    <div class="search-content">
+      <i class="fa-solid fa-xmark search-close" role="button" aria-label="Close modal"></i>
+      <h3 style="font-size: 22px;">Search Fluentra</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Type your search query below...</p>
+      <div class="search-input-wrap">
+        <input type="text" placeholder="Search courses, instructors, or guides..." aria-label="Search Input">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Javascripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

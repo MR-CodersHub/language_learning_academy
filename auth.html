@@ -265,12 +265,41 @@
       text-decoration: none;
     }
 
+    .form-group-auth input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    .password-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .password-input-wrapper input {
+      padding-right: 48px;
+    }
+
+    .password-toggle-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 16px;
+      transition: color var(--transition-fast);
+    }
+
+    .password-toggle-icon:hover {
+      color: var(--primary);
+    }
+
     .auth-submit-btn {
       width: 100%;
       padding: 16px;
       border: none;
       border-radius: var(--radius-sm);
-      background: var(--gradient-primary);
+      background: var(--gradient-accent);
       color: white;
       font-family: var(--font-heading);
       font-size: 16px;
@@ -437,7 +466,10 @@
           </div>
           <div class="form-group-auth">
             <label>Password</label>
-            <input type="password" id="loginPassword" placeholder="••••••••" required>
+            <div class="password-input-wrapper">
+              <input type="password" id="loginPassword" placeholder="••••••••" required>
+              <i class="fa-regular fa-eye password-toggle-icon" data-target="loginPassword"></i>
+            </div>
           </div>
           <div class="auth-options">
             <label class="remember-me">
@@ -460,9 +492,28 @@
           </div>
           <div class="form-group-auth">
             <label>Create Password</label>
-            <input type="password" id="signupPassword" placeholder="••••••••" required>
+            <div class="password-input-wrapper">
+              <input type="password" id="signupPassword" placeholder="••••••••" required>
+              <i class="fa-regular fa-eye password-toggle-icon" data-target="signupPassword"></i>
+            </div>
           </div>
           <button type="submit" class="auth-submit-btn">Create Free Account <i class="fa-solid fa-user-plus" style="margin-left: 5px;"></i></button>
+        </form>
+
+        <!-- Forgot Password Form -->
+        <form class="auth-form" id="formForgotPassword">
+          <div style="margin-bottom: 10px;">
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Reset Password</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Enter the email address associated with your account and we'll send you a link to reset your password.</p>
+          </div>
+          <div class="form-group-auth">
+            <label>Email Address</label>
+            <input type="email" id="forgotEmail" placeholder="student@fluentra.com" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Send Reset Link <i class="fa-solid fa-paper-plane" style="margin-left: 5px;"></i></button>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="#" class="back-to-login-btn" id="backToLoginLink" style="font-size: 13px; color: var(--primary); font-weight: 600; text-decoration: none;"><i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i> Back to Login</a>
+          </div>
         </form>
 
         <!-- Social Auth -->
@@ -539,6 +590,81 @@
         e.preventDefault();
         const name = document.getElementById('signupName').value;
         processAuth(name);
+      });
+
+      // 4. Password Visibility Toggle Logic
+      const toggleIcons = document.querySelectorAll('.password-toggle-icon');
+      toggleIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+          const targetInput = document.getElementById(icon.getAttribute('data-target'));
+          if (targetInput.type === 'password') {
+            targetInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          } else {
+            targetInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          }
+        });
+      });
+
+      // 5. Forgot Password Switcher Logic
+      const forgotPasswordLink = document.querySelector('.forgot-pw');
+      const backToLoginLink = document.getElementById('backToLoginLink');
+      const authSwitcher = document.querySelector('.auth-switcher');
+      const formForgotPassword = document.getElementById('formForgotPassword');
+      const formLogin = document.getElementById('formLogin');
+      const formSignup = document.getElementById('formSignup');
+
+      forgotPasswordLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        authSwitcher.style.display = 'none';
+        formLogin.classList.remove('active');
+        formSignup.classList.remove('active');
+        formForgotPassword.classList.add('active');
+      });
+
+      backToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        authSwitcher.style.display = 'flex';
+        formForgotPassword.classList.remove('active');
+        formLogin.classList.add('active');
+        switchBtns.forEach(b => {
+          if (b.getAttribute('data-target') === 'formLogin') {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+      });
+
+      // Forgot Password Submission Mock
+      formForgotPassword.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('forgotEmail').value;
+        
+        // Show elegant custom success notice
+        const noticeDiv = document.createElement('div');
+        noticeDiv.style.background = '#10b981';
+        noticeDiv.style.color = 'white';
+        noticeDiv.style.padding = '15px';
+        noticeDiv.style.borderRadius = '8px';
+        noticeDiv.style.fontSize = '14px';
+        noticeDiv.style.fontWeight = '600';
+        noticeDiv.style.textAlign = 'center';
+        noticeDiv.style.marginTop = '15px';
+        noticeDiv.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+        noticeDiv.style.animation = 'fadeIn 0.3s ease';
+        noticeDiv.innerHTML = `<i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> Reset instructions sent to <strong>${email}</strong>!`;
+        
+        formForgotPassword.appendChild(noticeDiv);
+        document.getElementById('forgotEmail').value = '';
+        
+        setTimeout(() => {
+          noticeDiv.remove();
+          backToLoginLink.click();
+        }, 3000);
       });
     });
   </script>

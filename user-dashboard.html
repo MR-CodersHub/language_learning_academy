@@ -1195,6 +1195,11 @@
             <i class="fa-solid fa-moon"></i>
           </div>
           
+          <!-- RTL Toggle -->
+          <button class="rtl-toggle-btn" id="rtlToggleBtn" title="Toggle RTL" aria-label="Toggle RTL">
+            <i class="fa-solid fa-right-left"></i>
+          </button>
+          
           <!-- Alerts Bell Trigger -->
           <div class="btn-circle notification-bell" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-card); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary);">
             <i class="fa-solid fa-bell"></i>
@@ -1602,6 +1607,38 @@
         if (currentTheme === 'light') newTheme = 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+      });
+    }
+
+    // RTL Toggle Engine
+    const rtlToggleBtn = document.getElementById('rtlToggleBtn');
+    const activeRTL = localStorage.getItem('rtl') === 'true';
+
+    const setRTL = (isRTL) => {
+      if (isRTL) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.classList.add('rtl-active');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.classList.remove('rtl-active');
+      }
+    };
+
+    setRTL(activeRTL);
+    if (rtlToggleBtn) {
+      if (activeRTL) {
+        rtlToggleBtn.classList.add('active');
+      } else {
+        rtlToggleBtn.classList.remove('active');
+      }
+      
+      rtlToggleBtn.addEventListener('click', () => {
+        const currentRTL = localStorage.getItem('rtl') === 'true';
+        const newRTL = !currentRTL;
+        
+        setRTL(newRTL);
+        localStorage.setItem('rtl', newRTL);
+        rtlToggleBtn.classList.toggle('active', newRTL);
       });
     }
     

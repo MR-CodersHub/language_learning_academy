@@ -24,29 +24,113 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 1.2. RTL TOGGLE ENGINE ---
+  const rtlToggleBtn = document.getElementById('rtlToggleBtn');
+  const activeRTL = localStorage.getItem('rtl') === 'true';
+
+  const setRTL = (isRTL) => {
+    if (isRTL) {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.classList.add('rtl-active');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.documentElement.classList.remove('rtl-active');
+    }
+  };
+
+  // Set initial RTL state
+  setRTL(activeRTL);
+  if (rtlToggleBtn) {
+    if (activeRTL) {
+      rtlToggleBtn.classList.add('active');
+    } else {
+      rtlToggleBtn.classList.remove('active');
+    }
+  }
+
+  if (rtlToggleBtn) {
+    rtlToggleBtn.addEventListener('click', () => {
+      const currentRTL = localStorage.getItem('rtl') === 'true';
+      const newRTL = !currentRTL;
+      
+      setRTL(newRTL);
+      localStorage.setItem('rtl', newRTL);
+      rtlToggleBtn.classList.toggle('active', newRTL);
+    });
+  }
+
+  // --- 1.3. HOME PAGE PRICING CTA SAFETY ---
+  const pricingPlansSection = document.getElementById('pricingPlansSection');
+  const pricingButtons = pricingPlansSection ? pricingPlansSection.querySelectorAll('.pricing-card .btn') : [];
+
+  pricingButtons.forEach((btn) => {
+    btn.style.pointerEvents = 'auto';
+    btn.style.cursor = 'pointer';
+    btn.setAttribute('aria-label', btn.textContent.trim() || 'Select Plan');
+
+    btn.addEventListener('click', (event) => {
+      const nextUrl = btn.getAttribute('href') || 'contact.html';
+
+      if (!nextUrl || nextUrl === '#' || nextUrl.startsWith('javascript:')) {
+        event.preventDefault();
+        window.location.assign('contact.html');
+        return;
+      }
+
+      event.preventDefault();
+      window.location.assign(nextUrl);
+    }, true);
+  });
+
   // --- 2. STICKY GLASSMORPHIC NAVBAR ---
   const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('sticky');
-    } else {
-      header.classList.remove('sticky');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('sticky');
+      } else {
+        header.classList.remove('sticky');
+      }
+    });
+  }
 
   // --- 3. MOBILE HAMBURGER NAVIGATION ---
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const dropdownToggles = document.querySelectorAll('.nav-item-dropdown > .nav-link');
 
-  if (hamburger) {
+  const setMobileMenuState = (isOpen) => {
+    if (!hamburger || !navMenu) return;
+
+    hamburger.classList.toggle('active', isOpen);
+    navMenu.classList.toggle('active', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      
-      // Accessibility attributes
-      const isExpanded = navMenu.classList.contains('active');
-      hamburger.setAttribute('aria-expanded', isExpanded);
+      setMobileMenuState(!navMenu.classList.contains('active'));
+    });
+
+    hamburger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setMobileMenuState(!navMenu.classList.contains('active'));
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        setMobileMenuState(false);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!navMenu.classList.contains('active')) return;
+      if (target instanceof Node && !navMenu.contains(target) && !hamburger.contains(target)) {
+        setMobileMenuState(false);
+      }
     });
   }
 
@@ -66,8 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 992) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        setMobileMenuState(false);
       }
     });
   });
@@ -406,9 +489,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const accountDropdownMenu = document.getElementById('accountDropdownMenu');
 
   if (accountTriggerBtn && accountDropdownMenu) {
+    accountTriggerBtn.innerHTML = `
+      <i class="fa-regular fa-circle-user"></i>
+    `;
+    accountTriggerBtn.setAttribute('aria-label', 'Open account menu');
+    accountTriggerBtn.setAttribute('title', 'Open account menu');
+
     // Fixed 3-item menu — always the same regardless of login state
     accountDropdownMenu.innerHTML = `
-      <a href="auth.html" class="acct-drop-link primary-link">
+      <a href="auth.html" class="acct-drop-link">
         <i class="fa-solid fa-right-to-bracket"></i>
         Login / Signup
       </a>

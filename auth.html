@@ -26,7 +26,7 @@
       padding: 100px 20px 60px;
       position: relative;
       overflow: hidden;
-      background: var(--bg-body);
+      background: var(--bg-app);
     }
 
     /* Background decorative blobs */
@@ -375,6 +375,12 @@
       height: 20px;
     }
 
+    .auth-mobile-logo {
+      display: none;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
     @media (max-width: 992px) {
       .auth-container {
         grid-template-columns: 1fr;
@@ -383,37 +389,64 @@
       .auth-sidebar {
         display: none;
       }
+      .auth-mobile-logo {
+        display: flex;
+      }
+      .auth-switcher {
+        justify-content: center;
+      }
+    }
+
+    /* Sticky Minimal Header styles */
+    .auth-header {
+      background: transparent !important;
+      border-bottom: 1px solid transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .auth-header.sticky {
+      background: transparent !important;
+      border-bottom: 1px solid transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    @media (max-width: 576px) {
+      .auth-form-wrap {
+        padding: 40px 24px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .auth-form-wrap {
+        padding: 30px 16px;
+      }
+      .auth-page-wrapper {
+        padding: 100px 12px 40px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Glassmorphic Header -->
-  <header class="header">
-    <div class="container navbar">
-      <!-- Logo -->
-      <a href="index.html" class="logo" id="headerLogo">
-        <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
-          <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
-        </div>
-        <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
-      </a>
-
-      <!-- Minimal Navigation for Auth Page -->
-      <nav class="nav-menu" id="navMenu">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="courses.html" class="nav-link">Courses</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
+  <!-- Sticky Minimal Header for Auth Page -->
+  <header class="header auth-header">
+    <div class="container navbar" style="justify-content: flex-end; border-bottom: none;">
       <div class="header-actions">
-        <!-- Theme Switch Toggle -->
+        <!-- Theme Toggle -->
         <div class="theme-toggle" id="themeToggleBtn" title="Toggle Theme" role="button" aria-label="Toggle theme">
           <div class="theme-toggle-ball"></div>
           <i class="fa-solid fa-sun"></i>
           <i class="fa-solid fa-moon"></i>
         </div>
+
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn" id="rtlToggleBtn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="fa-solid fa-right-left"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -425,6 +458,13 @@
       <!-- Left Sidebar Information -->
       <div class="auth-sidebar">
         <div class="auth-sidebar-inner">
+          <!-- Desktop Brand Logo -->
+          <a href="index.html" class="logo" style="margin-bottom: 40px; display: inline-flex; color: white;">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+            </div>
+            <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px; color: white;">Fluen<span style="color: white; -webkit-text-fill-color: white;">tra</span></div>
+          </a>
           <h2>Join the Global Language Ecosystem.</h2>
           <p>Access premium video modules, connect with native tutors, and earn verified certifications that open doors internationally.</p>
           
@@ -447,6 +487,16 @@
 
       <!-- Right Form Area -->
       <div class="auth-form-wrap">
+        
+        <!-- Mobile/Tablet Brand Logo -->
+        <div class="auth-mobile-logo">
+          <a href="index.html" class="logo">
+            <div class="logo-icon" style="background: linear-gradient(135deg, #7C3AED, #3B82F6); border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              <i class="fa-solid fa-language" style="transform: rotate(5deg); font-size: 20px; color: white;"></i>
+            </div>
+            <div class="logo-text" style="font-weight: 800; letter-spacing: -0.5px;">Fluen<span style="color: #3B82F6;">tra</span></div>
+          </a>
+        </div>
         
         <!-- Pending Enrollment Banner -->
         <div id="authPendingBanner">

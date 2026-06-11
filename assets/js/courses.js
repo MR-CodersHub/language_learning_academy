@@ -1,5 +1,5 @@
 /**
- * AuraLingo Academy Courses Engine
+ * Fluentra Academy Courses Engine
  */
 
 const COURSES_DATA = [

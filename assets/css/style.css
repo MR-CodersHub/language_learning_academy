@@ -749,6 +749,16 @@ textarea {
   gap: 40px;
 }
 
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat-item:not(:first-child) {
+  border-left: 2px solid var(--border-color);
+  padding-left: 30px;
+}
+
 .hero-stat-item h3 {
   font-size: 28px;
   color: var(--text-primary);
@@ -1816,6 +1826,9 @@ textarea {
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .teacher-card:hover {
@@ -1861,7 +1874,8 @@ textarea {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: white;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -1873,10 +1887,20 @@ textarea {
 .teacher-socials-btn:hover {
   background: var(--primary);
   color: white;
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .teacher-socials-btn:hover {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
 }
 
 .teacher-body {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .teacher-name {
@@ -1905,6 +1929,7 @@ textarea {
   color: #f59e0b;
   font-size: 14px;
   font-weight: 600;
+  margin-top: auto;
 }
 
 .teacher-rating span {
@@ -2684,8 +2709,56 @@ textarea.form-input {
   }
 
   .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    flex-direction: unset !important;
+  }
+
+  .hero-stat-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 14px 6px !important;
+    text-align: center !important;
+    box-shadow: var(--shadow-sm);
+    display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .hero-stat-item:not(:first-child) {
+    border-left: 1px solid var(--border-color) !important;
+    padding-left: 6px !important;
+  }
+
+  html[dir="rtl"] .hero-stat-item {
+    border-left: 1px solid var(--border-color) !important;
+    border-right: 1px solid var(--border-color) !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  .hero-stat-item h3 {
+    font-size: 18px !important;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px !important;
+    font-weight: 800;
+  }
+
+  .hero-stat-item p {
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+    margin: 0 !important;
+    letter-spacing: -0.2px;
   }
 
   .stats-grid {
@@ -2836,15 +2909,20 @@ textarea.form-input {
 
 /* Header account trigger button */
 .account-trigger-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+  min-height: 38px;
+  min-width: auto;
+  border-radius: var(--radius-full);
   border: 1.5px solid var(--border-color);
   background: rgba(255, 255, 255, 0.92);
   color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-heading);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -2873,7 +2951,11 @@ textarea.form-input {
 }
 
 .account-trigger-btn i {
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.account-trigger-btn .acct-btn-label {
+  white-space: nowrap;
 }
 
 /* Dropdown panel */
@@ -3013,10 +3095,59 @@ textarea.form-input {
 
 /* Mobile alignment fix */
 @media (max-width: 768px) {
+  .navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .logo {
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .logo-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0 !important;
+    gap: 16px !important;
+  }
+
+  .header-actions > * {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .user-account-widget {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   .account-trigger-btn {
-    width: 38px;
-    height: 38px;
-    padding: 0;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    gap: 0 !important;
   }
 
   .account-dropdown {
@@ -3029,13 +3160,14 @@ textarea.form-input {
 /* -- Mobile Header Spacing Optimization (480px & 360px) -- */
 @media (max-width: 480px) {
   .account-trigger-btn {
-    width: 32px;
-    height: 32px;
-    padding: 0;
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 11px;
+    gap: 6px;
   }
 
   .account-trigger-btn i {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .navbar {
@@ -3303,15 +3435,23 @@ textarea.form-input {
 /* Mobile Header RTL Button Spacing/Sizing */
 @media (max-width: 480px) {
   .rtl-toggle-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
   }
 
   .account-trigger-btn {
-    width: 32px;
-    height: 32px;
-    padding: 0;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12px !important;
+    gap: 0 !important;
   }
 
   .account-dropdown {
@@ -3321,13 +3461,21 @@ textarea.form-input {
 
 @media (max-width: 360px) {
   .account-trigger-btn {
-    width: 30px;
-    height: 30px;
-    padding: 0;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    gap: 0 !important;
   }
 
   .account-trigger-btn i {
-    font-size: 13px;
+    font-size: 10px !important;
   }
 }
 
@@ -3441,134 +3589,3 @@ html[dir="rtl"] .notification-bell .bell-badge {
     gap: 20px !important;
   }
 }
-
-/* --- PREMIUM BLOG DETAILS CONTENT ALIGNMENT & RESPONSIVE STANDARDIZATION --- */
-
-/* 1. Takeaway Cards / Checklist Sections */
-body .takeaways-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-left: 0;
-  list-style-type: none;
-}
-
-body .takeaways-list li {
-  display: grid;
-  grid-template-columns: 24px 220px 1fr;
-  gap: 12px;
-  align-items: start;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-body .takeaways-list li i {
-  color: #10b981;
-  margin-top: 4px;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-body .takeaways-list li strong {
-  font-weight: 700;
-  color: var(--text-primary);
-  flex-shrink: 0;
-}
-
-/* 2. Educational Content Containers / Learning Tips Boxes */
-body .tip-box {
-  align-items: flex-start;
-  gap: 20px;
-}
-
-body .tip-content h4 {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-body .tip-content p {
-  margin-bottom: 0;
-}
-
-/* 3. Summary Cards / Information Cards */
-body .example-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-body .example-explanation {
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-/* 4. Highlight Boxes / Pull Quotes */
-body .pull-quote {
-  border-left: 4px solid var(--primary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
-/* 5. Mobile Adjustments for Blog Detail Cards */
-@media (max-width: 768px) {
-  body .takeaways-list li {
-    display: block;
-    position: relative;
-    padding-left: 28px;
-  }
-  
-  body .takeaways-list li i {
-    position: absolute;
-    left: 0;
-    top: 2px;
-    margin-top: 0;
-  }
-  
-  body .takeaways-list li strong {
-    display: inline;
-  }
-
-  body .tip-box {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  body .tip-box {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 24px 20px;
-  }
-  
-  body .tip-icon {
-    margin-bottom: 8px;
-  }
-}
-
-/* 6. RTL Mirror Adjustments for Blog Detail Components */
-html[dir="rtl"] body .pull-quote {
-  border-left: none;
-  border-right: 4px solid var(--primary);
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
-}
-
-html[dir="rtl"] body .takeaways-list li {
-  grid-template-columns: 24px 220px 1fr;
-}
-
-html[dir="rtl"] body .insights-list {
-  padding-left: 0;
-  padding-right: 20px;
-}
-
-@media (max-width: 768px) {
-  html[dir="rtl"] body .takeaways-list li {
-    padding-left: 0;
-    padding-right: 28px;
-  }
-
-  html[dir="rtl"] body .takeaways-list li i {
-    left: auto;
-    right: 0;
-  }
-}

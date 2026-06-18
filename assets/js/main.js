@@ -484,66 +484,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle all enroll clicks globally via robust event delegation
   document.addEventListener('click', handleEnrollment);
 
-  // --- 12. DYNAMIC USER ACCOUNT DROPDOWN ---
-  const accountTriggerBtn = document.getElementById('accountTriggerBtn');
-  const accountDropdownMenu = document.getElementById('accountDropdownMenu');
+  // --- 12. DYNAMIC LOGIN/LOGOUT & DASHBOARD NAVIGATION ---
+  const headerLoginBtn = document.getElementById('headerLoginBtn');
+  const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+  const updateLoginButton = (btn) => {
+    if (!btn) return;
+    if (currentUser) {
+      btn.textContent = 'Logout';
+      btn.setAttribute('href', '#');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('currentUser');
+        window.location.reload();
+      });
+    } else {
+      btn.textContent = 'Login / Signup';
+      btn.setAttribute('href', 'auth.html');
+    }
+  };
 
-  if (accountTriggerBtn && accountDropdownMenu) {
-    accountTriggerBtn.innerHTML = `
-      <i class="fa-regular fa-circle-user"></i>
-    `;
-    accountTriggerBtn.setAttribute('aria-label', 'Open account menu');
-    accountTriggerBtn.setAttribute('title', 'Open account menu');
-
-    // Fixed 3-item menu — always the same regardless of login state
-    accountDropdownMenu.innerHTML = `
-      <a href="auth.html" class="acct-drop-link">
-        <i class="fa-solid fa-right-to-bracket"></i>
-        Login / Signup
-      </a>
-      <div class="acct-drop-divider"></div>
-      <a href="user-dashboard.html" class="acct-drop-link">
-        <i class="fa-solid fa-graduation-cap"></i>
-        User Dashboard
-      </a>
-      <a href="admin-dashboard.html" class="acct-drop-link">
-        <i class="fa-solid fa-shield-halved"></i>
-        Admin Dashboard
-      </a>
-    `;
-
-    const openDropdown = () => {
-      accountDropdownMenu.classList.add('open');
-      accountTriggerBtn.classList.add('open');
-      accountTriggerBtn.setAttribute('aria-expanded', 'true');
-    };
-
-    const closeDropdown = () => {
-      accountDropdownMenu.classList.remove('open');
-      accountTriggerBtn.classList.remove('open');
-      accountTriggerBtn.setAttribute('aria-expanded', 'false');
-    };
-
-    accountTriggerBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      accountDropdownMenu.classList.contains('open') ? closeDropdown() : openDropdown();
-    });
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (
-        accountDropdownMenu.classList.contains('open') &&
-        !accountDropdownMenu.contains(e.target) &&
-        !accountTriggerBtn.contains(e.target)
-      ) {
-        closeDropdown();
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeDropdown();
-    });
-  }
+  updateLoginButton(headerLoginBtn);
+  updateLoginButton(mobileLoginBtn);
 
 });

@@ -1108,6 +1108,70 @@
         padding: 12px 10px;
       }
     }
+
+    /* Header Profile Custom Styling overrides for centering and vertical alignment */
+    .user-account-widget {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+    }
+    
+    .user-account-widget .account-trigger-btn {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-primary) !important;
+      cursor: pointer !important;
+      box-shadow: none !important;
+      transition: all var(--transition-fast) !important;
+      outline: none !important;
+    }
+    
+    .user-account-widget .account-trigger-btn:hover,
+    .user-account-widget .account-trigger-btn.open {
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+      background: var(--primary-glow) !important;
+    }
+    
+    [data-theme="dark"] .user-account-widget .account-trigger-btn:hover,
+    [data-theme="dark"] .user-account-widget .account-trigger-btn.open {
+      border-color: var(--secondary) !important;
+      color: var(--secondary) !important;
+      background: var(--secondary-glow) !important;
+    }
+
+    .user-account-widget .account-dropdown {
+      top: calc(100% + 10px);
+    }
+    
+    @media (max-width: 992px) {
+      .user-account-widget {
+        height: 38px;
+      }
+      .user-account-widget .account-trigger-btn {
+        width: 38px !important;
+        height: 38px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .user-account-widget {
+        height: 34px;
+      }
+      .user-account-widget .account-trigger-btn {
+        width: 34px !important;
+        height: 34px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1125,16 +1189,7 @@
         </div>
         <span class="dash-logo-text" style="font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #7C3AED, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Fluentra</span>
       </a>
-      
-      <!-- User profile summary -->
-      <div class="dash-user-profile">
-        <div class="dash-user-avatar" id="sidebarAvatar">J</div>
-        <div class="dash-user-info">
-          <h4 id="sidebarUsername">John Doe</h4>
-          <p>Student Account</p>
-        </div>
-      </div>
-      
+
       <!-- Nav menus list -->
       <nav class="dash-menu">
         <button class="dash-menu-item active" data-tab="overview">
@@ -1204,6 +1259,35 @@
           <div class="btn-circle notification-bell" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-card); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary);">
             <i class="fa-solid fa-bell"></i>
             <span class="bell-badge"></span>
+          </div>
+          
+          <!-- User Profile Icon with Dropdown -->
+          <div class="user-account-widget" id="headerUserWidget">
+            <button class="account-trigger-btn" id="accountTriggerBtn" aria-label="User Account Menu" aria-expanded="false">
+              <span id="headerAvatar">J</span>
+            </button>
+            <div class="account-dropdown" id="accountDropdownMenu" role="menu">
+              <div class="acct-drop-header">
+                <span class="acct-drop-kicker">Student Portal</span>
+                <strong id="headerUsername">John Doe</strong>
+                <p id="headerEmail">john.doe@fluentra.com</p>
+              </div>
+              <div class="acct-drop-section">
+                <a href="#" class="acct-drop-link" id="headerProfileLink">
+                  <i class="fa-solid fa-user"></i>
+                  Profile
+                </a>
+                <a href="#" class="acct-drop-link" id="headerSettingsLink">
+                  <i class="fa-solid fa-sliders"></i>
+                  Settings
+                </a>
+                <div class="acct-drop-divider"></div>
+                <a href="#" class="acct-drop-link logout-btn" id="headerLogoutBtn" style="color: #ef4444;">
+                  <i class="fa-solid fa-right-from-bracket" style="color: #ef4444;"></i>
+                  Logout
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -1644,9 +1728,83 @@
     
     // Set Logged In user details
     const currentUser = JSON.parse(localStorage.getItem('currentUser')) || { name: 'John Doe', role: 'Active Scholar' };
-    document.getElementById('sidebarUsername').textContent = currentUser.name;
     document.getElementById('bannerUsername').textContent = currentUser.name;
-    document.getElementById('sidebarAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
+    
+    // Set Header Profile Details
+    const headerAvatar = document.getElementById('headerAvatar');
+    const headerUsername = document.getElementById('headerUsername');
+    const headerEmail = document.getElementById('headerEmail');
+    if (headerAvatar) headerAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+    if (headerUsername) headerUsername.textContent = currentUser.name;
+    if (headerEmail) {
+      headerEmail.textContent = currentUser.email || (currentUser.name.toLowerCase().replace(/\s+/g, '') + '@fluentra.com');
+    }
+    
+    // Header User Dropdown Toggle
+    const headerUserTrigger = document.getElementById('accountTriggerBtn');
+    const headerUserDropdown = document.getElementById('accountDropdownMenu');
+    
+    if (headerUserTrigger && headerUserDropdown) {
+      const openDropdown = () => {
+        headerUserDropdown.classList.add('open');
+        headerUserTrigger.classList.add('open');
+        headerUserTrigger.setAttribute('aria-expanded', 'true');
+      };
+      
+      const closeDropdown = () => {
+        headerUserDropdown.classList.remove('open');
+        headerUserTrigger.classList.remove('open');
+        headerUserTrigger.setAttribute('aria-expanded', 'false');
+      };
+      
+      headerUserTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        headerUserDropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+      });
+      
+      document.addEventListener('click', (e) => {
+        if (
+          headerUserDropdown.classList.contains('open') &&
+          !headerUserDropdown.contains(e.target) &&
+          !headerUserTrigger.contains(e.target)
+        ) {
+          closeDropdown();
+        }
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDropdown();
+      });
+
+      // Menu Actions
+      const headerProfileLink = document.getElementById('headerProfileLink');
+      const headerSettingsLink = document.getElementById('headerSettingsLink');
+      const headerLogoutBtn = document.getElementById('headerLogoutBtn');
+
+      if (headerProfileLink) {
+        headerProfileLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchTab('settings');
+          closeDropdown();
+        });
+      }
+
+      if (headerSettingsLink) {
+        headerSettingsLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchTab('settings');
+          closeDropdown();
+        });
+      }
+
+      if (headerLogoutBtn) {
+        headerLogoutBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser');
+          window.location.href = 'index.html';
+        });
+      }
+    }
     
     // Tab System Control
     const menuItems = document.querySelectorAll('.dash-menu-item[data-tab]');
